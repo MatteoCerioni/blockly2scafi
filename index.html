@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>blockly2scafi</title>
+</head>
+<body>
+
+<xml id="toolbox" style="display: none">
+    <block type="write">
+        <field name="MESSAGE">message</field>
+    </block>
+</xml>
+
+<div style="width:100%;display: flex">
+    <div id="blocklyContainer" style="height:500px; width:50%; margin:20px"></div>
+
+    <div id="codeContainer" style="height:460px; width:49%;  margin:20px; padding:20px; border:1px solid #ddd">Code Here..</div>
+</div>
+
+<!-- include Blockly -->
+<script type="text/javascript" src="blockly_compressed.js"></script>
+<script type="text/javascript" src="scafi_generator.js"></script>
+<!-- include Scala.js compiled code -->
+<script type="text/javascript" src="target/scala-2.12/blockly2scafi-fastopt.js"></script>
+</body>
+</html>
