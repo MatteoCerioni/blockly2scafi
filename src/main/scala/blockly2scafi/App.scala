@@ -1,4 +1,4 @@
-package example
+package blockly2scafi
 
 import org.scalajs.dom
 
