@@ -4,9 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Move html and js files to resources directory">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/blocks.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/test/scala/blockly2scafi/HelloSpec.scala" afterDir="false" />
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Move blocks json definition from scafi_generator.js to blocks.js file">
+      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" afterDir="false" />
     </list>
@@ -90,7 +89,7 @@
       <updated>1640714374692</updated>
       <workItem from="1640714377776" duration="3398000" />
       <workItem from="1640793933567" duration="17000" />
-      <workItem from="1640794388480" duration="3281000" />
+      <workItem from="1640794388480" duration="6924000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -113,7 +112,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640797564900</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Move blocks json definition from scafi_generator.js to blocks.js file">
+      <created>1640797726428</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1640797726428</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -131,11 +137,11 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
-    <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="First commit" />
     <MESSAGE value="Rename package name &quot;example&quot; to &quot;blockly2scafi&quot;" />
     <MESSAGE value="Move html and js files to resources directory" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move html and js files to resources directory" />
+    <MESSAGE value="Move blocks json definition from scafi_generator.js to blocks.js file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Move blocks json definition from scafi_generator.js to blocks.js file" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
