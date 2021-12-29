@@ -4,7 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="First commit" />
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Rename package name &quot;example&quot; to &quot;blockly2scafi&quot;">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/blocks.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/toolbox.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/test/scala/blockly2scafi/HelloSpec.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules/blockly2scafi.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules/blockly2scafi.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockly_compressed.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blockly_compressed.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/blockly_compressed.js.map" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blockly_compressed.js.map" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/scafi_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -20,6 +30,14 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -42,6 +60,9 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/project" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/resources" />
     </key>
   </component>
   <component name="RunManager">
@@ -67,7 +88,9 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1640714374692</updated>
-      <workItem from="1640714377776" duration="928000" />
+      <workItem from="1640714377776" duration="3398000" />
+      <workItem from="1640793933567" duration="17000" />
+      <workItem from="1640794388480" duration="2934000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -76,7 +99,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640715177934</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Rename package name &quot;example&quot; to &quot;blockly2scafi&quot;">
+      <created>1640715431094</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1640715431094</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -97,6 +127,7 @@
     <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
     <option name="CHECK_NEW_TODO" value="false" />
     <MESSAGE value="First commit" />
-    <option name="LAST_COMMIT_MESSAGE" value="First commit" />
+    <MESSAGE value="Rename package name &quot;example&quot; to &quot;blockly2scafi&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="Rename package name &quot;example&quot; to &quot;blockly2scafi&quot;" />
   </component>
 </project>
