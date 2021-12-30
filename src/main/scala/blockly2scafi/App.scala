@@ -1,22 +1,23 @@
-package blockly2scafi
+package main.scala.blockly2scafi
 
-import org.scalajs.dom
+import org.scalajs.dom.document
 
-import scalajs.js
-import dom.{Event, document};
+import scala.scalajs.js
 
-object App{
+object App {
   def main(args: Array[String]): Unit = {
+    val BlocklyEditorId = "blockly-editor"
+    val GeneratedCodeId = "generated-code"
 
-    val toolbox = document.getElementById("toolbox")
-    val blocklyContainer = document.getElementById("blocklyContainer")
-    val codeContainer = document.getElementById("codeContainer")
-    val workspace = Blockly.inject(blocklyContainer, js.Dynamic.literal(
-      "toolbox" -> toolbox.outerHTML
+    val toolboxElement = document.getElementById("toolbox")
+    val blocklyEditorElement = document.getElementById(BlocklyEditorId)
+    val generatedCodeElement = document.getElementById(GeneratedCodeId)
+    val workspace = Blockly.inject(blocklyEditorElement, js.Dynamic.literal(
+      "toolbox" -> toolboxElement.outerHTML
     ))
 
     workspace.addChangeListener(() => {
-      codeContainer.textContent = Blockly.ScaFi.workspaceToCode(workspace)
+      generatedCodeElement.textContent = Blockly.ScaFi.workspaceToCode(workspace)
     })
   }
 }

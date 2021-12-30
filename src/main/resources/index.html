@@ -1,8 +1,26 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <title>blockly2scafi</title>
+
+    <!-- BOOTSTRAP 4.4 - TODO: substitute with local offline assets -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+          integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+            integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+            crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin="anonymous"></script>
+
+    <script
+            src="https://use.fontawesome.com/releases/v5.15.4/js/all.js"
+            data-search-pseudo-elements
+    ></script>
+
+
+    <link rel="stylesheet" href="main.css">
 </head>
 <body>
 
@@ -12,10 +30,53 @@
     </block>
 </xml>
 
-<div style="width:100%;display: flex">
-    <div id="blocklyContainer" style="height:500px; width:50%; margin:20px"></div>
+<nav class="navbar navbar-light bg-light border-bottom">
 
-    <div id="codeContainer" style="height:460px; width:49%;  margin:20px; padding:20px; border:1px solid #ddd">Code Here..</div>
+    <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1">Blockly2Scafi</span>
+
+        <div>
+            <a class="btn btn-outline-dark my-2 my-sm-0" href="https://github.com/matteocerioni/blockly2scafi"
+               target="_blank">
+                <i class="fab fa-github fa-lg pr-2" aria-hidden="true"></i>
+                blockly2scafi
+            </a>
+            <a class="btn btn-outline-dark my-2 my-sm-0" href="https://scafi.github.io/web" target="_blank">
+                Scafi web
+            </a>
+        </div>
+
+    </div>
+</nav>
+<div class="container-fluid mt-2" style="height: calc(100% - 70px)">
+    <div class="row h-100">
+        <div class="col-12 col-lg-8 h-100 mb-2">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="card-title">Editor</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">Drag and drop blocks to generate Scafi code.</h6>
+
+                </div>
+                <div class="card-body p-0">
+                    <div id="blockly-editor">
+                        <!-- Here will be loaded blockly editor-->
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="col-12  col-lg-4 h-100">
+            <div class="card h-100">
+                <div class="card-header">
+                    <h5 class="card-title">Scafi Code</h5>
+                    <h6 class="card-subtitle mb-2 text-muted">The code will be generated in real-time.</h6>
+
+                </div>
+                <div id="code-container" class="card-body p-2 bg-dark">
+                    <pre class="text-light"><code id="generated-code"><!-- Here will be loaded generated code by blockly--></code></pre>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
 <!-- include Blockly -->
@@ -23,6 +84,6 @@
 <script type="text/javascript" src="blocks.js"></script>
 <script type="text/javascript" src="scafi_generator.js"></script>
 <!-- include Scala.js compiled code -->
-<script type="text/javascript" src="../../../target/scala-2.12/blockly2scafi-fastopt.js"></script>
+<script type="text/javascript" src="../../../target/scala-2.12/blockly2scafi-opt.js"></script>
 </body>
 </html>

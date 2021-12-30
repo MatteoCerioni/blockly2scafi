@@ -1,4 +1,4 @@
-package blockly2scafi
+package main.scala.blockly2scafi
 
 import org.scalajs.dom.raw.{Element, Event}
 

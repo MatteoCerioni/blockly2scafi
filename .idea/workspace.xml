@@ -4,10 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Move blocks json definition from scafi_generator.js to blocks.js file">
-      <change afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Set up a simple bootstrap layout to the web page">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/main.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/blockly2scafi/App.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/blockly2scafi/App.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/blockly2scafi/Blockly.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/blockly2scafi/Blockly.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -54,6 +57,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/scala/blockly2scafi" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/project" />
   </component>
   <component name="RecentsManager">
@@ -89,7 +93,8 @@
       <updated>1640714374692</updated>
       <workItem from="1640714377776" duration="3398000" />
       <workItem from="1640793933567" duration="17000" />
-      <workItem from="1640794388480" duration="6924000" />
+      <workItem from="1640794388480" duration="9908000" />
+      <workItem from="1640882995818" duration="4089000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -119,7 +124,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640797726428</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Add README.md">
+      <created>1640801690740</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1640801690740</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -141,7 +153,9 @@
     <MESSAGE value="Rename package name &quot;example&quot; to &quot;blockly2scafi&quot;" />
     <MESSAGE value="Move html and js files to resources directory" />
     <MESSAGE value="Move blocks json definition from scafi_generator.js to blocks.js file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Move blocks json definition from scafi_generator.js to blocks.js file" />
+    <MESSAGE value="Add README.md" />
+    <MESSAGE value="Set up a simple bootstrap layout to the web page" />
+    <option name="LAST_COMMIT_MESSAGE" value="Set up a simple bootstrap layout to the web page" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
