@@ -12,3 +12,8 @@ sbt fullOptJS
 ```
 
 - Open in browser the file [index.html](src/main/resources/index.html)
+
+## Project structure
+
+TODO: describe how to modify blocks library using the tool and how to extends che code generator...
+

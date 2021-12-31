@@ -12,7 +12,7 @@ object App {
     val toolboxElement = document.getElementById("toolbox")
     val blocklyEditorElement = document.getElementById(BlocklyEditorId)
     val generatedCodeElement = document.getElementById(GeneratedCodeId)
-    val workspace = Blockly.inject(blocklyEditorElement, js.Dynamic.literal(
+    val workspace = Blockly.createBlockly2ScafiWorkspace(blocklyEditorElement, js.Dynamic.literal(
       "toolbox" -> toolboxElement.outerHTML
     ))
 

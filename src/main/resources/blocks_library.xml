@@ -1,0 +1,72 @@
+<!-- Blocks library for Blockly Developer Tools ( https://blockly-demo.appspot.com/static/demos/blockfactory/index.html ) -->
+<xml xmlns="https://developers.google.com/blockly/xml">
+    <block type="factory_base" id="4C]Vp9g/0_/)~69:Bd6N" deletable="false" movable="false" x="10" y="10">
+        <mutation connections="NONE"/>
+        <field name="NAME">aggregate_program</field>
+        <field name="INLINE">AUTO</field>
+        <field name="CONNECTIONS">NONE</field>
+        <statement name="INPUTS">
+            <block type="input_dummy" id="mG2IuZKr(C64}y%EtEz^">
+                <field name="ALIGN">CENTRE</field>
+                <statement name="FIELDS">
+                    <block type="field_static" id="p^p.FQ]+q6#K+-1!%(z$">
+                        <field name="TEXT">MyAggregateProgram</field>
+                    </block>
+                </statement>
+                <next>
+                    <block type="input_statement" id="KP+HXYoCb.L|.ZA,j#wl">
+                        <field name="INPUTNAME">AGGREGATE_PROGRAM_MAIN</field>
+                        <field name="ALIGN">LEFT</field>
+                        <statement name="FIELDS">
+                            <block type="field_static" id="r?b/KxX2IEU)5c(fL5X^">
+                                <field name="TEXT">main</field>
+                            </block>
+                        </statement>
+                        <value name="TYPE">
+                            <shadow type="type_null" id="Uuc3mUIJDWn5G+(osGr,"/>
+                            <block type="type_null" id="SrRkNwry_{vc8|[(NeBv"/>
+                        </value>
+                    </block>
+                </next>
+            </block>
+        </statement>
+        <value name="TOOLTIP">
+            <block type="text" id="fNWi|Tv~V0nfhyfXvXBO" deletable="false" movable="false">
+                <field name="TEXT">AggregateProgram</field>
+            </block>
+        </value>
+        <value name="HELPURL">
+            <block type="text" id="`TL]uhjSJT|KKXns4gyx" deletable="false" movable="false">
+                <field name="TEXT">https://scafi.github.io/</field>
+            </block>
+        </value>
+        <value name="COLOUR">
+            <block type="colour_hue" id="]7*1~pv{YM9@FILT6P95">
+                <mutation colour="#5ba56d"/>
+                <field name="HUE">135</field>
+            </block>
+        </value>
+    </block>
+    <block type="factory_base" id="oK1Cl1%Xu4lgL9EX^]Dl" deletable="false" movable="false" x="10" y="10">
+        <mutation connections="NONE"/>
+        <field name="NAME">output</field>
+        <field name="INLINE">AUTO</field>
+        <field name="CONNECTIONS">NONE</field>
+        <value name="TOOLTIP">
+            <block type="text" id="L@s@CgO[:D]ut^JdpE$o" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="HELPURL">
+            <block type="text" id="fZ3zPH@55%?[];L[HOhr" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="COLOUR">
+            <block type="colour_hue" id="Viy=9]AsOh+QGCe)u;l5">
+                <mutation colour="#5b67a5"/>
+                <field name="HUE">230</field>
+            </block>
+        </value>
+    </block>
+</xml>

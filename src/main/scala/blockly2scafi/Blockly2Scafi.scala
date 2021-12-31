@@ -1,6 +1,6 @@
 package main.scala.blockly2scafi
 
-import org.scalajs.dom.raw.{Element, Event}
+import org.scalajs.dom.raw.Element
 
 import scala.scalajs.js
 import scala.scalajs.js.annotation.JSGlobal
@@ -18,7 +18,8 @@ trait Workspace extends js.Object {
 @js.native
 @JSGlobal
 object Blockly extends js.Object {
+  def createBlockly2ScafiWorkspace(elt: Element, config: js.Object): Workspace = js.native
+
   def ScaFi: ScaFi = js.native
-  def inject(elt: Element, config: js.Object): Workspace = js.native
 }
 

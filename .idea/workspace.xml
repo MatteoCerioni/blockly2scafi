@@ -5,12 +5,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Set up a simple bootstrap layout to the web page">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/main.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/blockly2scafi/App.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/blockly2scafi/App.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/blockly2scafi/Blockly.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/blockly2scafi/Blockly.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/blockly2scafi/Blockly.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/blockly2scafi/Blockly2Scafi.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,10 +61,11 @@
     <property name="SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/scala/blockly2scafi" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/project" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/scala/blockly2scafi" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/main/scala/blockly2scafi" />
       <recent name="$PROJECT_DIR$/project" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -94,7 +98,8 @@
       <workItem from="1640714377776" duration="3398000" />
       <workItem from="1640793933567" duration="17000" />
       <workItem from="1640794388480" duration="9908000" />
-      <workItem from="1640882995818" duration="4089000" />
+      <workItem from="1640882995818" duration="10123000" />
+      <workItem from="1640967818534" duration="4515000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -131,7 +136,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640801690740</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Set up a simple bootstrap layout to the web page">
+      <created>1640889577764</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1640889577764</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
