@@ -4,16 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Set up a simple bootstrap layout to the web page">
-      <change afterPath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Add aggregate_program block">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/scala/blockly2scafi/App.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/blockly2scafi/App.scala" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/scala/blockly2scafi/Blockly.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/blockly2scafi/Blockly2Scafi.scala" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/scala/blockly2scafi/Blockly2Scafi.scala" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/scala/blockly2scafi/Blockly2Scafi.scala" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -99,7 +97,8 @@
       <workItem from="1640793933567" duration="17000" />
       <workItem from="1640794388480" duration="9908000" />
       <workItem from="1640882995818" duration="10123000" />
-      <workItem from="1640967818534" duration="4515000" />
+      <workItem from="1640967818534" duration="4751000" />
+      <workItem from="1641233652003" duration="2444000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -143,7 +142,14 @@
       <option name="project" value="LOCAL" />
       <updated>1640889577764</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Add aggregate_program block">
+      <created>1640973494947</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1640973494947</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -167,7 +173,8 @@
     <MESSAGE value="Move blocks json definition from scafi_generator.js to blocks.js file" />
     <MESSAGE value="Add README.md" />
     <MESSAGE value="Set up a simple bootstrap layout to the web page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Set up a simple bootstrap layout to the web page" />
+    <MESSAGE value="Add aggregate_program block" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add aggregate_program block" />
     <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
   </component>
 </project>
