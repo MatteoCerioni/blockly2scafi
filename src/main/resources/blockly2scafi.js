@@ -1,12 +1,23 @@
-Blockly.createBlockly2ScafiWorkspace = function (elt, config) {
-    const workspace = Blockly.inject(elt, config);
+Blockly.createBlockly2ScafiWorkspace = function (elt) {
+    const toolboxXml =
+        '<xml>' +
+        '<block type="output"></block>' +
+        '<block type="string"></block>' +
+        '</xml>'
 
     const initialWorkspaceXml =
         '<xml>' +
         '<block type="aggregate_program" deletable="false" x="10" y="10">' +
-        //'   <field name="MESSAGE">Hello world</field>' +
+        '<statement name="AGGREGATE_PROGRAM_MAIN">' +
+        '<block type="output" ></block>' +
+        '</statement>' +
         '</block>' +
         '</xml>';
+
+
+    const workspace = Blockly.inject(elt, {
+        toolbox: toolboxXml
+    });
 
     const initialBlockIds = Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialWorkspaceXml), workspace);
 
@@ -21,13 +32,16 @@ scafiGenerator['aggregate_program'] = function (block) {
     var import_code = "";
 
     //TODO CHECK INSIDE BLOCKS AND IMPORT USED LIBRARIES.
-
     return import_code +
         Blockly.ScaFi.statementToCode(block, "AGGREGATE_PROGRAM_MAIN");
 }
 
-scafiGenerator['write'] = function (block) {
-    return '"' + block.getFieldValue('MESSAGE') + '"';
+scafiGenerator['string'] = function (block) {
+    return ['"' + block.getFieldValue('STRING_VALUE') + '"', 0]; //TODO USE ORDER
+}
+
+scafiGenerator['output'] = function (block) {
+    return Blockly.ScaFi.valueToCode(block, "OUTPUT_VALUE", 0); //TODO USE ORDER
 }
 
 Blockly.ScaFi = scafiGenerator;
