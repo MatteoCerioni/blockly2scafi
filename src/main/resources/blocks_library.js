@@ -117,4 +117,28 @@ Blockly.defineBlocksWithJsonArray([{
         "tooltip": "",
         "helpUrl": ""
     },
+    {
+        "type": "mux",
+        "message0": "Mux %1 First %2 Second %3",
+        "args0": [
+        {
+            "type": "input_value",
+            "name": "CONDITION",
+            "check": "Boolean"
+        },
+        {
+            "type": "input_value",
+            "name": "FIRST_BRANCH"
+        },
+        {
+            "type": "input_value",
+            "name": "SECOND_BRANCH"
+        }
+    ],
+        "inputsInline": false,
+        "output": null,
+        "colour": 210,
+        "tooltip": "",
+        "helpUrl": ""
+    }
 ]);

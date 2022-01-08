@@ -7,12 +7,13 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         '<block type="boolean"></block>' +
         '<block type="tuple"></block>' +
         '<block type="sense">' +
-        '<value name="SENSOR_NAME">' +
-        '<shadow type="string">' +
-        '<field name="STRING_VALUE">sensor1</field>' +
-        '</shadow>' +
-        '</value>' +
+            '<value name="SENSOR_NAME">' +
+                '<shadow type="string">' +
+                    '<field name="STRING_VALUE">sensor1</field>' +
+                '</shadow>' +
+            '</value>' +
         '</block>' +
+        '<block type="mux"></block>' +
         '</xml>'
 
     const initialWorkspaceXml =
@@ -29,7 +30,7 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         toolbox: toolboxXml
     });
 
-    const initialBlockIds = Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialWorkspaceXml), workspace);
+    Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialWorkspaceXml), workspace);
 
     workspace.addChangeListener(Blockly.Events.disableOrphans); //Disable all blocks outside the main block
 
@@ -41,9 +42,10 @@ scafiGenerator.PRECEDENCE = 0;
 scafiGenerator.FUNCTION_CALL = 1;
 
 scafiGenerator['aggregate_program'] = function (block) {
-    var import_code = "";
+    let import_code = "";
 
     //TODO CHECK INSIDE BLOCKS AND IMPORT USED LIBRARIES.
+
     return import_code +
         Blockly.ScaFi.statementToCode(block, "AGGREGATE_PROGRAM_MAIN");
 }
@@ -74,6 +76,19 @@ scafiGenerator['tuple'] = function (block) {
 scafiGenerator['sense'] = function (block) {
     const sensor = Blockly.ScaFi.valueToCode(block, 'SENSOR_NAME', scafiGenerator.PRECEDENCE);
     const code = 'sense(' + sensor + ')';
+    return [code, scafiGenerator.PRECEDENCE];
+}
+
+scafiGenerator['mux'] = function (block) {
+    const condition = Blockly.ScaFi.valueToCode(block, 'CONDITION', scafiGenerator.PRECEDENCE);
+    const firstBranch = Blockly.ScaFi.valueToCode(block, 'FIRST_BRANCH', scafiGenerator.PRECEDENCE);
+    const secondBranch = Blockly.ScaFi.valueToCode(block, 'SECOND_BRANCH', scafiGenerator.PRECEDENCE);
+    //TODO CHECK TYPE OF THE TWO BRANCHES.
+    let code = 'mux(' + condition + '){\n';
+    code += scafiGenerator.INDENT+firstBranch+'\n';
+    code += '}{\n';
+    code += scafiGenerator.INDENT+secondBranch+'\n';
+    code += '}';
     return [code, scafiGenerator.PRECEDENCE];
 }
 
