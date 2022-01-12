@@ -69,11 +69,11 @@ Blockly.defineBlocksWithJsonArray([{
                 "options": [
                     [
                         "true",
-                        "TRUE"
+                        "true"
                     ],
                     [
                         "false",
-                        "FALSE"
+                        "false"
                     ]
                 ]
             }
@@ -121,23 +121,97 @@ Blockly.defineBlocksWithJsonArray([{
         "type": "mux",
         "message0": "Mux %1 First %2 Second %3",
         "args0": [
-        {
-            "type": "input_value",
-            "name": "CONDITION",
-            "check": "Boolean"
-        },
-        {
-            "type": "input_value",
-            "name": "FIRST_BRANCH"
-        },
-        {
-            "type": "input_value",
-            "name": "SECOND_BRANCH"
-        }
-    ],
+            {
+                "type": "input_value",
+                "name": "CONDITION",
+                "check": "Boolean"
+            },
+            {
+                "type": "input_value",
+                "name": "FIRST_BRANCH"
+            },
+            {
+                "type": "input_value",
+                "name": "SECOND_BRANCH"
+            }
+        ],
         "inputsInline": false,
         "output": null,
         "colour": 210,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "boolean_operation",
+        "message0": "%1 %2 %3 %4",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FIRST",
+                "check": "Boolean"
+            },
+            {
+                "type": "field_dropdown",
+                "name": "OPERATOR",
+                "options": [
+                    [
+                        "and",
+                        "and"
+                    ],
+                    [
+                        "or",
+                        "or"
+                    ]
+                ]
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SECOND",
+                "check": "Boolean"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Boolean",
+        "colour": 210,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "define",
+        "message0": "Define %1 %2",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "NAME",
+                "text": "x"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "inputsInline": false,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 330,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "getter",
+        "message0": "%1",
+        "args0": [
+            {
+                "type": "field_label_serializable",
+                "name": "NAME",
+                "text": ""
+            }
+        ],
+        "output": null,
+        "colour": 330,
         "tooltip": "",
         "helpUrl": ""
     }

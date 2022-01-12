@@ -209,6 +209,9 @@
         </value>
         <value name="OUTPUTTYPE">
             <shadow type="type_null" id="T8t(m2G(^w5}#}1E)kDM"/>
+            <block type="type_other" id="CBexfYYR)CVsUEp|;/A*">
+                <field name="TYPE">Integer</field>
+            </block>
         </value>
         <value name="COLOUR">
             <block type="colour_hue" id="9/JiF]9ZjzwVbnA`^Pe#">
@@ -227,12 +230,12 @@
                 <field name="ALIGN">LEFT</field>
                 <statement name="FIELDS">
                     <block type="field_dropdown" id="t9YM^Q6/dfgn@^3t,uLx">
-                        <mutation options="[" text","text"]"/>
+                        <mutation options="["text","text"]"/>
                         <field name="FIELDNAME">BOOLEAN_VALUE</field>
                         <field name="USER0">true</field>
-                        <field name="CPU0">TRUE</field>
+                        <field name="CPU0">true</field>
                         <field name="USER1">false</field>
-                        <field name="CPU1">FALSE</field>
+                        <field name="CPU1">false</field>
                     </block>
                 </statement>
             </block>
@@ -261,22 +264,21 @@
     <block type="factory_base" id="?IFm6I)e:cr@+}r|zb;E" deletable="false" movable="false" x="10" y="10">
         <mutation connections="LEFT"/>
         <field name="NAME">sense</field>
-        <field name="INLINE">AUTO</field>
+        <field name="INLINE">EXT</field>
         <field name="CONNECTIONS">LEFT</field>
         <statement name="INPUTS">
-            <block type="input_dummy" id="/esR2v3n_0XtcHT@Yp^6">
+            <block type="input_value" id="J56)DwOp0/QIWxeJaKuG">
+                <field name="INPUTNAME">SENSOR_NAME</field>
                 <field name="ALIGN">LEFT</field>
                 <statement name="FIELDS">
                     <block type="field_static" id="px_0d$ON7uuR3C@|mT!0">
                         <field name="TEXT">Sense</field>
-                        <next>
-                            <block type="field_input" id="Py?Lby2rCr{}^AvxO{(5">
-                                <field name="TEXT">sensor1</field>
-                                <field name="FIELDNAME">SENSOR_NAME</field>
-                            </block>
-                        </next>
                     </block>
                 </statement>
+                <value name="TYPE">
+                    <shadow type="type_null" id="acD{dX,lNn0B+C:n.m6*"/>
+                    <block type="type_string" id="`uX%T%+uW}TB.FOZEpTv"/>
+                </value>
             </block>
         </statement>
         <value name="TOOLTIP">
@@ -302,7 +304,7 @@
     <block type="factory_base" id="}i5{Y#gF(ePdS%#TEhFF" deletable="false" movable="false" x="10" y="10">
         <mutation connections="LEFT"/>
         <field name="NAME">tuple</field>
-        <field name="INLINE">INT</field>
+        <field name="INLINE">AUTO</field>
         <field name="CONNECTIONS">LEFT</field>
         <statement name="INPUTS">
             <block type="input_value" id="FKg-*NyDLtsdjO7lzqYk">
@@ -354,11 +356,249 @@
         </value>
         <value name="OUTPUTTYPE">
             <shadow type="type_null" id="]KQ]A@FR17ga1N=WKHJ1"/>
+            <block type="type_other" id="]I4H-sQiN#gumTYHv._9">
+                <field name="TYPE">Tuple</field>
+            </block>
         </value>
         <value name="COLOUR">
             <block type="colour_hue" id="NT)zMg]}.yJ[B,#Ul20,">
                 <mutation colour="#5b67a5"/>
                 <field name="HUE">230</field>
+            </block>
+        </value>
+    </block>
+    <block type="factory_base" id="TJ=?zPkavN#/rmKRXN_P" deletable="false" movable="false" x="10" y="10">
+        <mutation connections="LEFT"/>
+        <field name="NAME">mux</field>
+        <field name="INLINE">EXT</field>
+        <field name="CONNECTIONS">LEFT</field>
+        <statement name="INPUTS">
+            <block type="input_value" id="kjx`4ZMq^E4TxR{l.#~:">
+                <field name="INPUTNAME">CONDITION</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                    <block type="field_static" id="K%|:.)wfiLu,2LaAa3Vb">
+                        <field name="TEXT">Mux</field>
+                    </block>
+                </statement>
+                <value name="TYPE">
+                    <shadow type="type_null" id="}Li3CQslM^li+Ikji^uw"/>
+                    <block type="type_boolean" id="-7[Bt4mEsTN17jB0}Atz"/>
+                </value>
+                <next>
+                    <block type="input_value" id="deHkr5,CQ^J$@^X:U-D:">
+                        <field name="INPUTNAME">FIRST_BRANCH</field>
+                        <field name="ALIGN">LEFT</field>
+                        <statement name="FIELDS">
+                            <block type="field_static" id="Kp.a_Ay19x:%HZnK#!B1">
+                                <field name="TEXT">First</field>
+                            </block>
+                        </statement>
+                        <value name="TYPE">
+                            <shadow type="type_null" id="Ztv/R_x!7_|9Bks=1VjZ"/>
+                        </value>
+                        <next>
+                            <block type="input_value" id="K/=K[x9#~K0%}P^;D4Mr">
+                                <field name="INPUTNAME">SECOND_BRANCH</field>
+                                <field name="ALIGN">LEFT</field>
+                                <statement name="FIELDS">
+                                    <block type="field_static" id="l65+Hs9~_WEgI2,CLW5v">
+                                        <field name="TEXT">Second</field>
+                                    </block>
+                                </statement>
+                                <value name="TYPE">
+                                    <shadow type="type_null" id="xrSIWuJi[EdN;nvjAv8]"/>
+                                </value>
+                            </block>
+                        </next>
+                    </block>
+                </next>
+            </block>
+        </statement>
+        <value name="TOOLTIP">
+            <block type="text" id="h=tMCJRlazy-ACIdW?Rl" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="HELPURL">
+            <block type="text" id="[hY_v(cGK;t:m6ACiHk]" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="OUTPUTTYPE">
+            <shadow type="type_null" id="TtfTgx5/2e:)oV(*5`xm"/>
+        </value>
+        <value name="COLOUR">
+            <block type="colour_hue" id="9nJF1,?HSvXaNO#~!H4X">
+                <mutation colour="#5b80a5"/>
+                <field name="HUE">210</field>
+            </block>
+        </value>
+    </block>
+    <block type="factory_base" id="5pIlQb-4ypEtDq.qv*WP" deletable="false" movable="false" x="10" y="10">
+        <mutation connections="LEFT"/>
+        <field name="NAME">boolean_operation</field>
+        <field name="INLINE">INT</field>
+        <field name="CONNECTIONS">LEFT</field>
+        <statement name="INPUTS">
+            <block type="input_value" id="@*uVc8en8Iw^ajzKZjFw">
+                <field name="INPUTNAME">FIRST</field>
+                <field name="ALIGN">LEFT</field>
+                <value name="TYPE">
+                    <shadow type="type_null" id="K)DPDy`g#giz@)#z?VJ*"/>
+                    <block type="type_boolean" id="@lj+=WL%togWVLa]V:se"/>
+                </value>
+                <next>
+                    <block type="input_dummy" id="js6|y$K%kl4r7eXRocuY">
+                        <field name="ALIGN">LEFT</field>
+                        <statement name="FIELDS">
+                            <block type="field_dropdown" id="F+U8^e,!BaOH#4{0xdG2">
+                                <mutation options="["text","text"]"/>
+                                <field name="FIELDNAME">OPERATOR</field>
+                                <field name="USER0">and</field>
+                                <field name="CPU0">and</field>
+                                <field name="USER1">or</field>
+                                <field name="CPU1">or</field>
+                            </block>
+                        </statement>
+                        <next>
+                            <block type="input_value" id="$oy5po1NZqywSf$H8iN)">
+                                <field name="INPUTNAME">SECOND</field>
+                                <field name="ALIGN">LEFT</field>
+                                <value name="TYPE">
+                                    <shadow type="type_null" id="faiBorj6yBV,+6=i:{+T"/>
+                                    <block type="type_boolean" id="vg;S9,fJf*a.zr#G{gtQ"/>
+                                </value>
+                            </block>
+                        </next>
+                    </block>
+                </next>
+            </block>
+        </statement>
+        <value name="TOOLTIP">
+            <block type="text" id="7PL$e)4UFc%`!:Xo?4Pp" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="HELPURL">
+            <block type="text" id="D(]$INTp@r2.x.Pzyj:H" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="OUTPUTTYPE">
+            <shadow type="type_null" id=",TeKlHbUvm4f?kw(ra=h"/>
+            <block type="type_boolean" id="eI9HEo)].R`#(Z:~FTIt"/>
+        </value>
+        <value name="COLOUR">
+            <block type="colour_hue" id="`6[HLS[_(|m`2HibgyOz">
+                <mutation colour="#5b80a5"/>
+                <field name="HUE">210</field>
+            </block>
+        </value>
+    </block>
+    <block type="factory_base" id="N`nQ}i|7nI|{8ue{fBMD" deletable="false" movable="false" x="10" y="10">
+        <mutation connections="NONE"/>
+        <field name="NAME">double</field>
+        <field name="INLINE">AUTO</field>
+        <field name="CONNECTIONS">NONE</field>
+        <value name="TOOLTIP">
+            <block type="text" id="|^k~2BWr=yhM/3~*U~df" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="HELPURL">
+            <block type="text" id="RFsQKm[(BjzJ)n#ca3l%" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="COLOUR">
+            <block type="colour_hue" id="t/`vK2=ej{l-r/z:b^UT">
+                <mutation colour="#5b67a5"/>
+                <field name="HUE">230</field>
+            </block>
+        </value>
+    </block>
+    <block type="factory_base" id="M=SOaS0^fNB^y`I4WG#c" deletable="false" movable="false" x="10" y="10">
+        <mutation connections="LEFT"/>
+        <field name="NAME">getter</field>
+        <field name="INLINE">AUTO</field>
+        <field name="CONNECTIONS">LEFT</field>
+        <statement name="INPUTS">
+            <block type="input_dummy" id="Tad:8RWM@b/b^DH?tdHK">
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                    <block type="field_label_serializable" id="M[{~,6jEUT%Gy;cy|j[{">
+                        <field name="TEXT"/>
+                        <field name="FIELDNAME">NAME</field>
+                    </block>
+                </statement>
+            </block>
+        </statement>
+        <value name="TOOLTIP">
+            <block type="text" id="btGacZ]xbv}#/9LH{Id}" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="HELPURL">
+            <block type="text" id="^qqdRi%U.ZNyazUiB$h[" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="OUTPUTTYPE">
+            <shadow type="type_null" id="y{`byLJM.T5.%Ly)1:.c"/>
+        </value>
+        <value name="COLOUR">
+            <block type="colour_hue" id="G|M}84JPDb(%Y}}y,6gV">
+                <mutation colour="#a55b80"/>
+                <field name="HUE">330</field>
+            </block>
+        </value>
+    </block>
+    <block type="factory_base" id="0hz{amd(WamL[HJ3#`rV" deletable="false" movable="false" x="10" y="10">
+        <mutation connections="BOTH"/>
+        <field name="NAME">define</field>
+        <field name="INLINE">AUTO</field>
+        <field name="CONNECTIONS">BOTH</field>
+        <statement name="INPUTS">
+            <block type="input_value" id="^1BDxFK!Vs/qg(lk45]*">
+                <field name="INPUTNAME">VALUE</field>
+                <field name="ALIGN">LEFT</field>
+                <statement name="FIELDS">
+                    <block type="field_static" id="+sU#;fm3?;/T(GY5fI_d">
+                        <field name="TEXT">Define</field>
+                        <next>
+                            <block type="field_input" id="IeezWwM*Lz}-liOPHsnf">
+                                <field name="TEXT">x</field>
+                                <field name="FIELDNAME">NAME</field>
+                            </block>
+                        </next>
+                    </block>
+                </statement>
+                <value name="TYPE">
+                    <shadow type="type_null" id="{MZJjJ/pQ42%k4m%m=-4"/>
+                </value>
+            </block>
+        </statement>
+        <value name="TOOLTIP">
+            <block type="text" id="O3|r1^O,f@-HeN*EGE2?" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="HELPURL">
+            <block type="text" id="I4Yr@ipsvS$(_T9$nL{_" deletable="false" movable="false">
+                <field name="TEXT"/>
+            </block>
+        </value>
+        <value name="TOPTYPE">
+            <shadow type="type_null" id="p+O)qu(gaW@G:K}yeI5V"/>
+        </value>
+        <value name="BOTTOMTYPE">
+            <shadow type="type_null" id="yHlxkYdkGhG}rtmr7?h0"/>
+        </value>
+        <value name="COLOUR">
+            <block type="colour_hue" id="OgElVE@8XBW{W})k7$(c">
+                <mutation colour="#a55b80"/>
+                <field name="HUE">330</field>
             </block>
         </value>
     </block>

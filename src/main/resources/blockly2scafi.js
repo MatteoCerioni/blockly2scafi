@@ -1,11 +1,8 @@
 Blockly.createBlockly2ScafiWorkspace = function (elt) {
     const toolboxXml =
-        '<xml>' +
-        '<block type="output"></block>' +
-        '<block type="string"></block>' +
-        '<block type="integer"></block>' +
-        '<block type="boolean"></block>' +
-        '<block type="tuple"></block>' +
+        '<xml>\n' +
+        '<category name="ScaFi" colour="#a5745b">\n' +
+        '<block type="output"/>\n' +
         '<block type="sense">' +
             '<value name="SENSOR_NAME">' +
                 '<shadow type="string">' +
@@ -13,8 +10,35 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
                 '</shadow>' +
             '</value>' +
         '</block>' +
-        '<block type="mux"></block>' +
-        '</xml>'
+        '<block type="tuple"/>\n' +
+        '</category>\n' +
+        '<category name="Logic" colour="#5b80a5">\n' +
+        '<block type="mux"/>\n' +
+        '<block type="boolean">\n' +
+        '<field name="BOOLEAN_VALUE">true</field>\n' +
+        '</block>\n' +
+        '<block type="boolean_operation">\n' +
+        '<field name="OPERATOR">and</field>\n' +
+        '</block>\n' +
+        '</category>\n' +
+        '<category name="Math" colour="#5b67a5">\n' +
+        '<block type="integer">\n' +
+        '<field name="INTEGER_VALUE">0</field>\n' +
+        '</block>\n' +
+        '</category>\n' +
+        '<category name="Text" colour="#5ba58c">\n' +
+        '<block type="string">\n' +
+        '<field name="STRING_VALUE"/>\n' +
+        '</block>\n' +
+        '</category>\n' +
+        '<sep/>\n' +
+        '<category name="Functions" colour="#995ba5" custom="PROCEDURE"/>\n' +
+        '<category name="Variables" colour="#a55b80" custom="SCAFI_VARIABLE">\n'+
+            '<block type="define">\n' +
+            '</block>\n'+
+        '</category>\n'+
+        '</xml>';
+
 
     const initialWorkspaceXml =
         '<xml>' +
@@ -30,6 +54,37 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         toolbox: toolboxXml
     });
 
+    const variablesDynamicCategoryCallback = function(workspace) {
+        const blockList = [];
+        blockList.push({
+            'kind': 'block',
+            'type': 'define',
+        });
+
+        for(const defineBlock of workspace.getBlocksByType('define')) {
+            const defName = defineBlock.getFieldValue('NAME');
+            blockList.push({
+                'kind':'block',
+                'type':'getter',
+                'fields': {
+                    'NAME': defName
+                }
+            });
+        }
+        //console.log(workspace);
+        /*for (var i = 0; i < colourList.length; i++) {
+            var block = document.createElement('block');
+            block.setAttribute('type', 'colour_picker');
+            var field = document.createElement('field');
+            field.setAttribute('name', 'COLOUR');
+            field.innerText = colourList[i];
+            block.appendChild(field);
+            blockList.push(block);
+        }*/
+        return blockList;
+    };
+    workspace.registerToolboxCategoryCallback('SCAFI_VARIABLE', variablesDynamicCategoryCallback);
+
     Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialWorkspaceXml), workspace);
 
     workspace.addChangeListener(Blockly.Events.disableOrphans); //Disable all blocks outside the main block
@@ -39,7 +94,10 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
 
 const scafiGenerator = new Blockly.Generator('ScaFi');
 scafiGenerator.PRECEDENCE = 0;
-scafiGenerator.FUNCTION_CALL = 1;
+
+scafiGenerator.FUNCTION_CALL = 2;
+scafiGenerator.ORDER_LOGICAL_AND = 13; // &&
+scafiGenerator.ORDER_LOGICAL_OR = 14; // ||
 
 scafiGenerator['aggregate_program'] = function (block) {
     let import_code = "";
@@ -92,10 +150,40 @@ scafiGenerator['mux'] = function (block) {
     return [code, scafiGenerator.PRECEDENCE];
 }
 
+scafiGenerator['boolean_operation'] = function (block) {
+    const operation = block.getFieldValue("OPERATION");
+    const first = Blockly.ScaFi.valueToCode(block, 'FIRST', scafiGenerator.PRECEDENCE);
+    const second = Blockly.ScaFi.valueToCode(block, 'SECOND', scafiGenerator.PRECEDENCE);
+
+    let order;
+    let code;
+    if(operation == 'and'){
+        code = first+' && '+second;
+        order = scafiGenerator.ORDER_LOGICAL_AND;
+    }else{ //or
+        code = first+' || '+second;
+        order = scafiGenerator.ORDER_LOGICAL_OR;
+    }
+
+    return [code, order];
+}
+
 
 scafiGenerator['output'] = function (block) {
     return Blockly.ScaFi.valueToCode(block, "OUTPUT_VALUE", scafiGenerator.PRECEDENCE);
 }
+
+scafiGenerator['define'] = function(block){
+    const defName = block.getFieldValue('NAME');
+     // TODO ADD TYPE?
+    let code = "def "+defName+" = "+Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.PRECEDENCE);
+    return code;
+}
+
+scafiGenerator['getter'] = function(block){
+    return [block.getFieldValue('NAME'), scafiGenerator.PRECEDENCE];
+}
+
 
 scafiGenerator.scrub_ = function (block, code, opt_thisOnly) {
     const nextBlock =

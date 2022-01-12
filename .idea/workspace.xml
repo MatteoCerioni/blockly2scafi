@@ -4,7 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Add output and string blocks">
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="add mux block">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
@@ -97,7 +97,11 @@
       <workItem from="1640882995818" duration="10123000" />
       <workItem from="1640967818534" duration="4751000" />
       <workItem from="1641233652003" duration="2856000" />
-      <workItem from="1641309957402" duration="8454000" />
+      <workItem from="1641309957402" duration="9303000" />
+      <workItem from="1641653861277" duration="2041000" />
+      <workItem from="1641686796497" duration="2786000" />
+      <workItem from="1641823365761" duration="12000" />
+      <workItem from="1642000269859" duration="5877000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -162,7 +166,21 @@
       <option name="project" value="LOCAL" />
       <updated>1641236189832</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="add int, bool, tuple and sense blocks">
+      <created>1641320842872</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1641320842872</updated>
+    </task>
+    <task id="LOCAL-00011" summary="add mux block">
+      <created>1641654883793</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1641654883793</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -189,7 +207,8 @@
     <MESSAGE value="Add aggregate_program block" />
     <MESSAGE value="Move toolbox definition to js" />
     <MESSAGE value="Add output and string blocks" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add output and string blocks" />
-    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="true" />
+    <MESSAGE value="add int, bool, tuple and sense blocks" />
+    <MESSAGE value="add mux block" />
+    <option name="LAST_COMMIT_MESSAGE" value="add mux block" />
   </component>
 </project>
