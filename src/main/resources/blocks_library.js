@@ -250,5 +250,63 @@ Blockly.defineBlocksWithJsonArray([{
         "colour": 230,
         "tooltip": "",
         "helpUrl": ""
+    },
+    {
+        "type": "channel",
+        "message0": "Channel %1 Source %2 Target %3 Width %4",
+        "args0": [
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SOURCE",
+                "check": "Boolean"
+            },
+            {
+                "type": "input_value",
+                "name": "TARGET",
+                "check": "Boolean"
+            },
+            {
+                "type": "input_value",
+                "name": "WIDTH",
+                "check": "Double"
+            }
+        ],
+        "output": "Boolean",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "led_all_to",
+        "message0": "led all to %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "COLOR",
+                "check": "Color"
+            }
+        ],
+        "output": "LedAllTo",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "color",
+        "message0": "Color %1",
+        "args0": [
+            {
+                "type": "field_colour",
+                "name": "COLOR",
+                "colour": "#ffff00"
+            }
+        ],
+        "output": "Color",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
     }
 ]);

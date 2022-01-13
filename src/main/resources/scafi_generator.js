@@ -8,8 +8,8 @@ scafiGenerator.ORDER_LOGICAL_OR = 14; // ||
 scafiGenerator['aggregate_program'] = function (block) {
     const import_map = {
         "distance_to" : "BlockG",
-        //"channel" : "BlockG",
-        //...
+        "channel" : "BlockG",
+        "led_all_to" : "Actuation",
     }
     let importArray = [];
     let import_code = "";
@@ -118,6 +118,24 @@ scafiGenerator['getter'] = function(block){
 scafiGenerator['distance_to'] = function(block){
     const code  = "distanceTo("+Blockly.ScaFi.valueToCode(block, "SRC", scafiGenerator.PRECEDENCE)+")";
     return [code,scafiGenerator.PRECEDENCE];
+}
+
+scafiGenerator['channel'] = function(block){
+    const code  = "channel("+
+        Blockly.ScaFi.valueToCode(block, "SOURCE", scafiGenerator.PRECEDENCE)+", "+
+        Blockly.ScaFi.valueToCode(block, "TARGET", scafiGenerator.PRECEDENCE)+", "+
+        Blockly.ScaFi.valueToCode(block, "WIDTH", scafiGenerator.PRECEDENCE)+
+    ")";
+    return [code,scafiGenerator.PRECEDENCE];
+}
+
+scafiGenerator['led_all_to'] = function(block){
+    const code  = "ledAll to "+Blockly.ScaFi.valueToCode(block, "COLOR", scafiGenerator.PRECEDENCE);
+    return [code,scafiGenerator.PRECEDENCE];
+}
+
+scafiGenerator['color'] = function(block){
+    return ['"'+block.getFieldValue('COLOR')+'"', scafiGenerator.PRECEDENCE];
 }
 
 scafiGenerator.scrub_ = function (block, code, opt_thisOnly) {

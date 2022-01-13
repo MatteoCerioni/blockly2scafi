@@ -1,19 +1,24 @@
 Blockly.createBlockly2ScafiWorkspace = function (elt) {
     const toolboxXml =
         '<xml>\n' +
-        '<category name="ScaFi" colour="#a5745b">\n' +
-        '<block type="output"/>\n' +
-        '<block type="sense">' +
-            '<value name="SENSOR_NAME">' +
-                '<shadow type="string">' +
-                    '<field name="STRING_VALUE">sensor1</field>' +
-                '</shadow>' +
-            '</value>' +
-        '</block>' +
-        '<block type="tuple"/>\n' +
+        '<category name="ScaFi" colour="#cfa138">\n' +
+            '<block type="output"/>\n' +
+            '<block type="sense">' +
+                '<value name="SENSOR_NAME">' +
+                    '<shadow type="string">' +
+                        '<field name="STRING_VALUE">sensor1</field>' +
+                    '</shadow>' +
+                '</value>' +
+            '</block>' +
+            '<block type="tuple"/>\n' +
         '</category>\n' +
-        '<category name="BlockG" colour="#a5745b">\n' +
-        '<block type="distance_to"/>\n' +
+        '<category name="BlockG" colour="#cfa138">\n' +
+            '<block type="distance_to"/>\n' +
+            '<block type="channel"/>\n' +
+        '</category>\n' +
+        '<category name="Actuation" colour="#cfa138">\n' +
+            '<block type="led_all_to"/>\n' +
+            '<block type="color"/>\n' +
         '</category>\n' +
         '<category name="Logic" colour="#5b80a5">\n' +
         '<block type="mux"/>\n' +
