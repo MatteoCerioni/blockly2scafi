@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="add workspace categories and new define variable block">
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="add distance_to block and manage modules import">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/index.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -101,7 +101,7 @@
       <workItem from="1641653861277" duration="2041000" />
       <workItem from="1641686796497" duration="2786000" />
       <workItem from="1641823365761" duration="12000" />
-      <workItem from="1642000269859" duration="11114000" />
+      <workItem from="1642000269859" duration="11287000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -187,7 +187,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642006298338</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="add distance_to block and manage modules import">
+      <created>1642061707792</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1642061707792</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -217,6 +224,7 @@
     <MESSAGE value="add int, bool, tuple and sense blocks" />
     <MESSAGE value="add mux block" />
     <MESSAGE value="add workspace categories and new define variable block" />
-    <option name="LAST_COMMIT_MESSAGE" value="add workspace categories and new define variable block" />
+    <MESSAGE value="add distance_to block and manage modules import" />
+    <option name="LAST_COMMIT_MESSAGE" value="add distance_to block and manage modules import" />
   </component>
 </project>
