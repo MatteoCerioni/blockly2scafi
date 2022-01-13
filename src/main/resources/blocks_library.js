@@ -214,5 +214,21 @@ Blockly.defineBlocksWithJsonArray([{
         "colour": 330,
         "tooltip": "",
         "helpUrl": ""
+    },
+    {
+        "type": "distance_to",
+        "message0": "Distance To %1",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SRC",
+                "check": "Boolean"
+            }
+        ],
+        "inputsInline": true,
+        "output": "Double",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
     }
 ]);

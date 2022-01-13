@@ -12,6 +12,9 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         '</block>' +
         '<block type="tuple"/>\n' +
         '</category>\n' +
+        '<category name="BlockG" colour="#a5745b">\n' +
+        '<block type="distance_to"/>\n' +
+        '</category>\n' +
         '<category name="Logic" colour="#5b80a5">\n' +
         '<block type="mux"/>\n' +
         '<block type="boolean">\n' +
@@ -71,16 +74,6 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
                 }
             });
         }
-        //console.log(workspace);
-        /*for (var i = 0; i < colourList.length; i++) {
-            var block = document.createElement('block');
-            block.setAttribute('type', 'colour_picker');
-            var field = document.createElement('field');
-            field.setAttribute('name', 'COLOUR');
-            field.innerText = colourList[i];
-            block.appendChild(field);
-            blockList.push(block);
-        }*/
         return blockList;
     };
     workspace.registerToolboxCategoryCallback('SCAFI_VARIABLE', variablesDynamicCategoryCallback);
@@ -100,12 +93,31 @@ scafiGenerator.ORDER_LOGICAL_AND = 13; // &&
 scafiGenerator.ORDER_LOGICAL_OR = 14; // ||
 
 scafiGenerator['aggregate_program'] = function (block) {
+    const import_map = {
+        "distance_to" : "BlockG",
+        //"channel" : "BlockG",
+        //...
+    }
+    let importArray = [];
     let import_code = "";
 
-    //TODO CHECK INSIDE BLOCKS AND IMPORT USED LIBRARIES.
+    const workspace = block.workspace;
+    const allBlocks = workspace.getAllBlocks();
+    for(const block of allBlocks){
+        if(block.type in import_map){
+            const module = import_map[block.type];
+            if(!importArray.includes(module)){
+                importArray.push(module);
+            }
+        }
+    }
+    if(importArray.length){
+        import_code = "//using "+importArray.join(", ")+"\n";
+    }
 
-    return import_code +
-        Blockly.ScaFi.statementToCode(block, "AGGREGATE_PROGRAM_MAIN");
+    const otherCode = Blockly.ScaFi.blockToCode(block.getInputTargetBlock("AGGREGATE_PROGRAM_MAIN")); //Not using statementToCode to avoid first INDENT
+
+    return import_code + otherCode;
 }
 
 scafiGenerator['string'] = function (block) {
@@ -184,6 +196,11 @@ scafiGenerator['getter'] = function(block){
     return [block.getFieldValue('NAME'), scafiGenerator.PRECEDENCE];
 }
 
+scafiGenerator['distance_to'] = function(block){
+
+    const code  = "distanceTo("+Blockly.ScaFi.valueToCode(block, "SRC", scafiGenerator.PRECEDENCE)+")";
+    return [code,scafiGenerator.FUNCTION_CALL];
+}
 
 scafiGenerator.scrub_ = function (block, code, opt_thisOnly) {
     const nextBlock =
