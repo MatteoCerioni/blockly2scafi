@@ -201,6 +201,27 @@ Blockly.defineBlocksWithJsonArray([{
         "helpUrl": ""
     },
     {
+        "type": "val",
+        "message0": "Val %1 %2",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "NAME",
+                "text": "x"
+            },
+            {
+                "type": "input_value",
+                "name": "VALUE"
+            }
+        ],
+        "inputsInline": false,
+        "previousStatement": null,
+        "nextStatement": null,
+        "colour": 330,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
         "type": "getter",
         "message0": "%1",
         "args0": [
@@ -225,7 +246,6 @@ Blockly.defineBlocksWithJsonArray([{
                 "check": "Boolean"
             }
         ],
-        "inputsInline": true,
         "output": "Double",
         "colour": 230,
         "tooltip": "",

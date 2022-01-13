@@ -105,14 +105,19 @@ scafiGenerator['define'] = function(block){
     return code;
 }
 
+scafiGenerator['val'] = function(block){
+    const defName = block.getFieldValue('NAME');
+    let code = "val "+defName+" = "+Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.PRECEDENCE);
+    return code;
+}
+
 scafiGenerator['getter'] = function(block){
     return [block.getFieldValue('NAME'), scafiGenerator.PRECEDENCE];
 }
 
 scafiGenerator['distance_to'] = function(block){
-
     const code  = "distanceTo("+Blockly.ScaFi.valueToCode(block, "SRC", scafiGenerator.PRECEDENCE)+")";
-    return [code,scafiGenerator.FUNCTION_CALL];
+    return [code,scafiGenerator.PRECEDENCE];
 }
 
 scafiGenerator.scrub_ = function (block, code, opt_thisOnly) {

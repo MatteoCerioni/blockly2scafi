@@ -36,10 +36,7 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         '</category>\n' +
         '<sep/>\n' +
         '<category name="Functions" colour="#995ba5" custom="PROCEDURE"/>\n' +
-        '<category name="Variables" colour="#a55b80" custom="SCAFI_VARIABLE">\n'+
-            '<block type="define">\n' +
-            '</block>\n'+
-        '</category>\n'+
+        '<category name="Variables" colour="#a55b80" custom="DEFINITIONS"/>\n'+
         '</xml>';
 
 
@@ -57,14 +54,19 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         toolbox: toolboxXml
     });
 
-    const variablesDynamicCategoryCallback = function(workspace) {
+    const definitionsDynamicCategoryCallback = function(workspace) {
         const blockList = [];
         blockList.push({
             'kind': 'block',
             'type': 'define',
         });
-
-        for(const defineBlock of workspace.getBlocksByType('define')) {
+        blockList.push({
+            'kind': 'block',
+            'type': 'val',
+        });
+        console.log(workspace);
+        const defineBlocks = workspace.getBlocksByType('define').concat(workspace.getBlocksByType('val'));
+        for(const defineBlock of defineBlocks) {
             const defName = defineBlock.getFieldValue('NAME');
             blockList.push({
                 'kind':'block',
@@ -76,7 +78,7 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         }
         return blockList;
     };
-    workspace.registerToolboxCategoryCallback('SCAFI_VARIABLE', variablesDynamicCategoryCallback);
+    workspace.registerToolboxCategoryCallback('DEFINITIONS', definitionsDynamicCategoryCallback);
 
     Blockly.Xml.domToWorkspace(Blockly.Xml.textToDom(initialWorkspaceXml), workspace);
 
