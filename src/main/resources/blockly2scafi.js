@@ -17,7 +17,11 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
             '<block type="channel"/>\n' +
         '</category>\n' +
         '<category name="Actuation" colour="#cfa138">\n' +
-            '<block type="led_all_to"/>\n' +
+            '<block type="led_all_to">\n' +
+                '<value name="COLOR">\n' +
+                    '<shadow type="color"/>\n' +
+                '</value>\n' +
+            '</block>\n'+
             '<block type="color"/>\n' +
         '</category>\n' +
         '<category name="Logic" colour="#5b80a5">\n' +
@@ -40,19 +44,23 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         '</block>\n' +
         '</category>\n' +
         '<sep/>\n' +
-        '<category name="Functions" colour="#995ba5" custom="PROCEDURE"/>\n' +
-        '<category name="Variables" colour="#a55b80" custom="DEFINITIONS"/>\n'+
+        //'<category name="Functions" colour="#995ba5" custom="PROCEDURE"/>\n' +
+        '<category name="Definitions" colour="#a55b80" custom="DEFINITIONS"/>\n'+
         '</xml>';
 
 
     const initialWorkspaceXml =
         '<xml>' +
-        '<block type="aggregate_program" deletable="false" x="10" y="10">' +
-        '<statement name="AGGREGATE_PROGRAM_MAIN">' +
-        '<block type="output" ></block>' +
-        '</statement>' +
-        '</block>' +
+            '<block type="aggregate_program" deletable="false" x="10" y="10">' +
+                '<statement name="AGGREGATE_PROGRAM_MAIN">' +
+                    '<block type="output" ></block>' +
+                '</statement>' +
+            '</block>' +
         '</xml>';
+
+    Blockly.Blocks['sense'].onchange = function(event){
+        console.log(event);
+    };
 
 
     const workspace = Blockly.inject(elt, {
@@ -69,7 +77,6 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
             'kind': 'block',
             'type': 'val',
         });
-        console.log(workspace);
         const defineBlocks = workspace.getBlocksByType('define').concat(workspace.getBlocksByType('val'));
         for(const defineBlock of defineBlocks) {
             const defName = defineBlock.getFieldValue('NAME');

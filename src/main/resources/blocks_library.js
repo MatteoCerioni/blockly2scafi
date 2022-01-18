@@ -112,7 +112,7 @@ Blockly.defineBlocksWithJsonArray([{
             }
         ],
         "inputsInline": false,
-        "output": null,
+        "output": "Boolean",
         "colour": 230,
         "tooltip": "",
         "helpUrl": ""
@@ -289,14 +289,13 @@ Blockly.defineBlocksWithJsonArray([{
                 "check": "Color"
             }
         ],
-        "output": "LedAllTo",
+        "output": "MatrixOps",
         "colour": 230,
         "tooltip": "",
         "helpUrl": ""
-    },
-    {
+    },{
         "type": "color",
-        "message0": "Color %1",
+        "message0": "%1",
         "args0": [
             {
                 "type": "field_colour",

@@ -7,8 +7,8 @@ scafiGenerator.ORDER_LOGICAL_OR = 14; // ||
 
 scafiGenerator['aggregate_program'] = function (block) {
     const import_map = {
-        "distance_to" : "BlockG",
-        "channel" : "BlockG",
+        "distance_to" : ["StandardSensors","BlockG"],
+        "channel" : ["StandardSensors","BlockG"],
         "led_all_to" : "Actuation",
     }
     let importArray = [];
@@ -18,9 +18,12 @@ scafiGenerator['aggregate_program'] = function (block) {
     const allBlocks = workspace.getAllBlocks();
     for(const block of allBlocks){
         if(block.type in import_map){
-            const module = import_map[block.type];
-            if(!importArray.includes(module)){
-                importArray.push(module);
+            let modules = import_map[block.type];
+            if(!Array.isArray(modules)) modules = [modules];
+            for(const module of modules){
+                if(!importArray.includes(module)){
+                    importArray.push(module);
+                }
             }
         }
     }
@@ -68,9 +71,9 @@ scafiGenerator['mux'] = function (block) {
     const secondBranch = Blockly.ScaFi.valueToCode(block, 'SECOND_BRANCH', scafiGenerator.PRECEDENCE);
     //TODO CHECK TYPE OF THE TWO BRANCHES.
     let code = 'mux(' + condition + '){\n';
-    code += scafiGenerator.INDENT+firstBranch+'\n';
+    code += scafiGenerator.prefixLines(firstBranch, scafiGenerator.INDENT)+'\n';
     code += '}{\n';
-    code += scafiGenerator.INDENT+secondBranch+'\n';
+    code += scafiGenerator.prefixLines(secondBranch, scafiGenerator.INDENT)+'\n';
     code += '}';
     return [code, scafiGenerator.PRECEDENCE];
 }
@@ -100,8 +103,20 @@ scafiGenerator['output'] = function (block) {
 
 scafiGenerator['define'] = function(block){
     const defName = block.getFieldValue('NAME');
-    // TODO ADD TYPE?
-    let code = "def "+defName+" = "+Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.PRECEDENCE);
+
+    const input = block.getInput('VALUE');
+    const connection = input.connection;
+    const targetConnection = connection.targetConnection;
+    let type = null;
+    if(targetConnection){
+        type = targetConnection.getCheck();
+    }
+
+    let code = "def "+defName;
+    if(type){
+        code += " : "+type
+    }
+    code += " = "+Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.PRECEDENCE);
     return code;
 }
 
@@ -139,8 +154,7 @@ scafiGenerator['color'] = function(block){
 }
 
 scafiGenerator.scrub_ = function (block, code, opt_thisOnly) {
-    const nextBlock =
-        block.nextConnection && block.nextConnection.targetBlock();
+    const nextBlock = block.nextConnection && block.nextConnection.targetBlock();
     let nextCode = '';
     if (nextBlock) {
         nextCode = opt_thisOnly ? '' : '\n' + scafiGenerator.blockToCode(nextBlock);

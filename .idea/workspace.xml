@@ -4,7 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="move scafi generator code to scafi_generator.js file">
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="add channel and led_all_to blocks">
+      <change afterPath="$PROJECT_DIR$/src/main/resources/channel_example.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/target/scala-2.12/blockly2scafi-opt.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
@@ -102,7 +105,9 @@
       <workItem from="1641686796497" duration="2786000" />
       <workItem from="1641823365761" duration="12000" />
       <workItem from="1642000269859" duration="11823000" />
-      <workItem from="1642088051456" duration="2825000" />
+      <workItem from="1642088051456" duration="7549000" />
+      <workItem from="1642331406737" duration="11000" />
+      <workItem from="1642519480026" duration="2847000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -202,7 +207,21 @@
       <option name="project" value="LOCAL" />
       <updated>1642061949385</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="add val definition block">
+      <created>1642090998715</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1642090998715</updated>
+    </task>
+    <task id="LOCAL-00016" summary="add channel and led_all_to blocks">
+      <created>1642091049143</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1642091049143</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -234,6 +253,8 @@
     <MESSAGE value="add workspace categories and new define variable block" />
     <MESSAGE value="add distance_to block and manage modules import" />
     <MESSAGE value="move scafi generator code to scafi_generator.js file" />
-    <option name="LAST_COMMIT_MESSAGE" value="move scafi generator code to scafi_generator.js file" />
+    <MESSAGE value="add val definition block" />
+    <MESSAGE value="add channel and led_all_to blocks" />
+    <option name="LAST_COMMIT_MESSAGE" value="add channel and led_all_to blocks" />
   </component>
 </project>
