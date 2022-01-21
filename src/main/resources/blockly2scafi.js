@@ -37,6 +37,9 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         '<block type="integer">\n' +
         '<field name="INTEGER_VALUE">0</field>\n' +
         '</block>\n' +
+        '<block type="double">\n' +
+        '<field name="VALUE">0.1</field>\n' +
+        '</block>\n' +
         '</category>\n' +
         '<category name="Text" colour="#5ba58c">\n' +
         '<block type="string">\n' +

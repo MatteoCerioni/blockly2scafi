@@ -60,6 +60,22 @@ Blockly.defineBlocksWithJsonArray([{
         "helpUrl": ""
     },
     {
+        "type": "double",
+        "message0": "%1",
+        "args0": [
+            {
+                "type": "field_number",
+                "name": "VALUE",
+                "value": 0.1,
+                "precision": null
+            }
+        ],
+        "output": "Double",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
         "type": "boolean",
         "message0": "%1",
         "args0": [

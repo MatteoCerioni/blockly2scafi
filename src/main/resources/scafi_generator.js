@@ -39,8 +39,14 @@ scafiGenerator['aggregate_program'] = function (block) {
 scafiGenerator['string'] = function (block) {
     return ['"' + block.getFieldValue('STRING_VALUE') + '"', 0];
 }
+
 scafiGenerator['integer'] = function (block) {
     const code = block.getFieldValue('INTEGER_VALUE').toString();
+    return [code, scafiGenerator.PRECEDENCE];
+}
+
+scafiGenerator['double'] = function (block) {
+    const code = block.getFieldValue('VALUE').toString();
     return [code, scafiGenerator.PRECEDENCE];
 }
 
