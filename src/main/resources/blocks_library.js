@@ -271,7 +271,10 @@ Blockly.defineBlocksWithJsonArray([{
             {
                 "type": "input_value",
                 "name": "WIDTH",
-                "check": "Double"
+                "check": [
+                    "Integer",
+                    "Double"
+                ]
             }
         ],
         "output": "Boolean",

@@ -696,8 +696,18 @@
                                         </statement>
                                         <value name="TYPE">
                                             <shadow type="type_null" id="Rqf9rDsDpnmxTCI[b@y?"/>
-                                            <block type="type_other" id="4_P)G)*eGvlurWI=wb9%">
-                                                <field name="TYPE">Double</field>
+                                            <block type="type_group" id="]UTFIKe[M6k:VTgBL92j">
+                                                <mutation types="2"/>
+                                                <value name="TYPE0">
+                                                    <block type="type_other" id="-/t96bC#y0!Hz-2Bp^8M">
+                                                        <field name="TYPE">Integer</field>
+                                                    </block>
+                                                </value>
+                                                <value name="TYPE1">
+                                                    <block type="type_other" id="4_P)G)*eGvlurWI=wb9%">
+                                                        <field name="TYPE">Double</field>
+                                                    </block>
+                                                </value>
                                             </block>
                                         </value>
                                     </block>
