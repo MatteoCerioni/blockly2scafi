@@ -4,10 +4,15 @@
             <block type="define" id="8Rp.r2hC.g1w#%WX0FLz">
                 <field name="NAME">source</field>
                 <value name="VALUE">
-                    <block type="sense" id="r{Q[iXd}av!xr`R3*VLZ">
+                    <block type="sense" id="=ir5k6Z7$OMKBl2D(Z`R">
+                        <value name="TYPE">
+                            <shadow type="type" id="5ZLBq^n7!%)jdVLzHpW%">
+                                <field name="TYPE">Boolean</field>
+                            </shadow>
+                        </value>
                         <value name="SENSOR_NAME">
-                            <shadow type="string" id="?Kd-wC6.DE*@NQ:7S/SF">
-                                <field name="STRING_VALUE">source</field>
+                            <shadow type="string" id="Ze.+MMYem@!-/6zVk;@D">
+                                <field name="STRING_VALUE">sensor1</field>
                             </shadow>
                         </value>
                     </block>
@@ -16,10 +21,15 @@
                     <block type="define" id="`,kZ,/i]q.-?zmHb-{V=">
                         <field name="NAME">target</field>
                         <value name="VALUE">
-                            <block type="sense" id="#dvcD`YtTAVOe!G8Y}ux">
+                            <block type="sense" id="GjUs8MP#?{LcT;k+jQ+?">
+                                <value name="TYPE">
+                                    <shadow type="type" id="I3TIxSlltAZaWUd?:9p@">
+                                        <field name="TYPE">Boolean</field>
+                                    </shadow>
+                                </value>
                                 <value name="SENSOR_NAME">
-                                    <shadow type="string" id="~i@+gxh9%XD%whCbU0U5">
-                                        <field name="STRING_VALUE">target</field>
+                                    <shadow type="string" id=")Art??L/tTA3wF9~(w8I">
+                                        <field name="STRING_VALUE">sensor1</field>
                                     </shadow>
                                 </value>
                             </block>

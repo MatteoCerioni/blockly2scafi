@@ -3,7 +3,12 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         '<xml>\n' +
         '<category name="ScaFi" colour="#cfa138">\n' +
             '<block type="output"/>\n' +
-            '<block type="sense">' +
+            '<block type="sense" output="Boolean">' +
+                '<value name="TYPE">' +
+                    '<shadow type="type">' +
+                        '<field name="TYPE">Boolean</field>' +
+                    '</shadow>' +
+                '</value>' +
                 '<value name="SENSOR_NAME">' +
                     '<shadow type="string">' +
                         '<field name="STRING_VALUE">sensor1</field>' +
@@ -25,28 +30,37 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
             '<block type="color"/>\n' +
         '</category>\n' +
         '<category name="Logic" colour="#5b80a5">\n' +
-        '<block type="mux"/>\n' +
-        '<block type="boolean">\n' +
-        '<field name="BOOLEAN_VALUE">true</field>\n' +
-        '</block>\n' +
-        '<block type="boolean_operation">\n' +
-        '<field name="OPERATOR">and</field>\n' +
-        '</block>\n' +
+            '<block type="mux"/>\n' +
+            '<block type="boolean">\n' +
+                '<field name="BOOLEAN_VALUE">true</field>\n' +
+            '</block>\n' +
+            '<block type="boolean_operation">\n' +
+                '<field name="OPERATOR">and</field>\n' +
+            '</block>\n' +
         '</category>\n' +
         '<category name="Math" colour="#5b67a5">\n' +
-        '<block type="integer">\n' +
-        '<field name="INTEGER_VALUE">0</field>\n' +
-        '</block>\n' +
-        '<block type="double">\n' +
-        '<field name="VALUE">0.1</field>\n' +
-        '</block>\n' +
+            '<block type="integer">\n' +
+                '<field name="INTEGER_VALUE">0</field>\n' +
+            '</block>\n' +
+            '<block type="double">\n' +
+                '<field name="VALUE">0.1</field>\n' +
+            '</block>\n' +
         '</category>\n' +
         '<category name="Text" colour="#5ba58c">\n' +
-        '<block type="string">\n' +
-        '<field name="STRING_VALUE"/>\n' +
-        '</block>\n' +
+            '<block type="string">\n' +
+                '<field name="STRING_VALUE"/>\n' +
+            '</block>\n' +
+        '</category>\n' +
+        '<category name="Type" colour="#5b67a5">\n' +
+            '<block type="type">\n' + '<field name="TYPE">Boolean</field>\n' + '</block>\n' +
+            '<block type="type">\n' + '<field name="TYPE">Integer</field>\n' + '</block>\n' +
+            '<block type="type">\n' + '<field name="TYPE">Double</field>\n' + '</block>\n' +
+            '<block type="type">\n' + '<field name="TYPE">String</field>\n' + '</block>\n' +
+            '<block type="other_type">\n' +
+            '</block>\n' +
         '</category>\n' +
         '<sep/>\n' +
+        //'<category name="Functions" colour="#995ba5" custom="PROCEDURE"/>'+
         //'<category name="Functions" colour="#995ba5" custom="PROCEDURE"/>\n' +
         '<category name="Definitions" colour="#a55b80" custom="DEFINITIONS"/>\n'+
         '</xml>';
@@ -61,10 +75,43 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
             '</block>' +
         '</xml>';
 
-    Blockly.Blocks['sense'].onchange = function(event){
-        console.log(event);
-    };
+    function updateSenseOutputType(event, workspace, senseBlock){
+        const blockCheck = senseBlock.outputConnection.getCheck()
+        const typeBlock = senseBlock.getInputTargetBlock('TYPE');
+        if(typeBlock){
+            const typeString = typeBlock.getFieldValue("TYPE")
+            if(!blockCheck || blockCheck.length === 0 || blockCheck[0] !== typeString){
+                senseBlock.setOutput(true, [typeString]);
+                workspace.fireChangeListener(event)
+            }
+        }else{
+            if(blockCheck && blockCheck.length !== 0){
+                senseBlock.setOutput(false,[]);
+                workspace.fireChangeListener(event)
+            }
+        }
+    }
 
+    Blockly.Blocks['sense'].onchange = function(event){
+        if(event instanceof Blockly.Events.BlockMove){
+            const workspace = Blockly.getMainWorkspace();
+            const block = workspace.getBlockById(event.blockId);
+            if(block && block.type==='type'){
+                if(event.newParentId){
+                    const newParentBlock = workspace.getBlockById(event.newParentId);
+                    if(newParentBlock.type === "sense"){
+                        updateSenseOutputType(event, workspace, newParentBlock);
+                    }
+                }
+                if(event.oldParentId){
+                    const oldParentBlock = workspace.getBlockById(event.oldParentId);
+                    if(oldParentBlock.type === "sense"){
+                        updateSenseOutputType(event, workspace, oldParentBlock);
+                    }
+                }
+            }
+        }
+    };
 
     const workspace = Blockly.inject(elt, {
         toolbox: toolboxXml

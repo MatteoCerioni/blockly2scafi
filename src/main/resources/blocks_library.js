@@ -119,15 +119,20 @@ Blockly.defineBlocksWithJsonArray([{
         "helpUrl": ""
     }, {
         "type": "sense",
-        "message0": "Sense %1",
+        "message0": "Sense %1 %2",
         "args0": [
+            {
+                "type": "input_value",
+                "name": "TYPE",
+                "check": "Class"
+            },
             {
                 "type": "input_value",
                 "name": "SENSOR_NAME",
                 "check": "String"
             }
         ],
-        "inputsInline": false,
+        "inputsInline": true,
         "output": "Boolean",
         "colour": 230,
         "tooltip": "",
@@ -323,6 +328,36 @@ Blockly.defineBlocksWithJsonArray([{
             }
         ],
         "output": "Color",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "type",
+        "message0": "%1",
+        "args0": [
+            {
+                "type": "field_label_serializable",
+                "name": "TYPE",
+                "text": ""
+            }
+        ],
+        "output": "Class",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "other_type",
+        "message0": "other %1",
+        "args0": [
+            {
+                "type": "field_input",
+                "name": "TYPE",
+                "text": ""
+            }
+        ],
+        "output": "Class",
         "colour": 230,
         "tooltip": "",
         "helpUrl": ""

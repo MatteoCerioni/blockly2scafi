@@ -75,7 +75,6 @@ scafiGenerator['mux'] = function (block) {
     const condition = Blockly.ScaFi.valueToCode(block, 'CONDITION', scafiGenerator.PRECEDENCE);
     const firstBranch = Blockly.ScaFi.valueToCode(block, 'FIRST_BRANCH', scafiGenerator.PRECEDENCE);
     const secondBranch = Blockly.ScaFi.valueToCode(block, 'SECOND_BRANCH', scafiGenerator.PRECEDENCE);
-    //TODO CHECK TYPE OF THE TWO BRANCHES.
     let code = 'mux(' + condition + '){\n';
     code += scafiGenerator.prefixLines(firstBranch, scafiGenerator.INDENT)+'\n';
     code += '}{\n';
@@ -91,7 +90,7 @@ scafiGenerator['boolean_operation'] = function (block) {
 
     let order;
     let code;
-    if(operation == 'and'){
+    if(operation === 'and'){
         code = first+' && '+second;
         order = scafiGenerator.ORDER_LOGICAL_AND;
     }else{ //or
@@ -112,10 +111,11 @@ scafiGenerator['define'] = function(block){
 
     const input = block.getInput('VALUE');
     const connection = input.connection;
-    const targetConnection = connection.targetConnection;
+    const targetBlock = connection.targetBlock();
+
     let type = null;
-    if(targetConnection){
-        type = targetConnection.getCheck();
+    if(targetBlock){
+        type = targetBlock.outputConnection.getCheck();
     }
 
     let code = "def "+defName;
@@ -128,8 +128,7 @@ scafiGenerator['define'] = function(block){
 
 scafiGenerator['val'] = function(block){
     const defName = block.getFieldValue('NAME');
-    let code = "val "+defName+" = "+Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.PRECEDENCE);
-    return code;
+    return "val " + defName + " = " + Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.PRECEDENCE);
 }
 
 scafiGenerator['getter'] = function(block){
@@ -157,6 +156,14 @@ scafiGenerator['led_all_to'] = function(block){
 
 scafiGenerator['color'] = function(block){
     return ['"'+block.getFieldValue('COLOR')+'"', scafiGenerator.PRECEDENCE];
+}
+
+scafiGenerator['type'] = function(block){
+    return [block.getFieldValue("TYPE"), scafiGenerator.PRECEDENCE];
+}
+
+scafiGenerator['other_type'] = function(block){
+    return [block.getFieldValue("TYPE"), scafiGenerator.PRECEDENCE];
 }
 
 scafiGenerator.scrub_ = function (block, code, opt_thisOnly) {

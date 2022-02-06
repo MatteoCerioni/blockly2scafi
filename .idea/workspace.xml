@@ -4,10 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Fix code generator for channel example">
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Add double block">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/channel_example.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/channel_example.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -103,7 +105,13 @@
       <workItem from="1642000269859" duration="11823000" />
       <workItem from="1642088051456" duration="7549000" />
       <workItem from="1642331406737" duration="11000" />
-      <workItem from="1642519480026" duration="3755000" />
+      <workItem from="1642519480026" duration="5744000" />
+      <workItem from="1642785687420" duration="2069000" />
+      <workItem from="1642950271814" duration="5141000" />
+      <workItem from="1643276331904" duration="600000" />
+      <workItem from="1643376693695" duration="3490000" />
+      <workItem from="1643974016977" duration="599000" />
+      <workItem from="1644156396471" duration="4877000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -224,7 +232,28 @@
       <option name="project" value="LOCAL" />
       <updated>1642522459764</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="Update blocks_library xml for Blockly developer tool">
+      <created>1642525907442</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1642525907442</updated>
+    </task>
+    <task id="LOCAL-00019" summary="Fix channel width type check">
+      <created>1642785969171</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1642785969171</updated>
+    </task>
+    <task id="LOCAL-00020" summary="Add double block">
+      <created>1642786412774</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1642786412774</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -259,6 +288,9 @@
     <MESSAGE value="add val definition block" />
     <MESSAGE value="add channel and led_all_to blocks" />
     <MESSAGE value="Fix code generator for channel example" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix code generator for channel example" />
+    <MESSAGE value="Update blocks_library xml for Blockly developer tool" />
+    <MESSAGE value="Fix channel width type check" />
+    <MESSAGE value="Add double block" />
+    <option name="LAST_COMMIT_MESSAGE" value="Add double block" />
   </component>
 </project>
