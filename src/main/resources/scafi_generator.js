@@ -1,6 +1,7 @@
 const scafiGenerator = new Blockly.Generator('ScaFi');
 
-scafiGenerator.PRECEDENCE = 0;
+//TODO FIX OPERATOR PRECEDENCE....
+scafiGenerator.ATOMIC = 0;
 scafiGenerator.FUNCTION_CALL = 2;
 scafiGenerator.ORDER_MULTIPLICATION = 5.1; // *
 scafiGenerator.ORDER_DIVISION = 5.2;       // /
@@ -14,6 +15,7 @@ scafiGenerator.ORDER_LOGICAL_OR = 14; // ||
 scafiGenerator['aggregate_program'] = function (block) {
     const import_map = {
         "distance_to" : ["StandardSensors","BlockG"],
+        "distance_between" : ["StandardSensors","BlockG"],
         "channel" : ["StandardSensors","BlockG"],
         "led_all_to" : "Actuation",
     }
@@ -203,8 +205,16 @@ scafiGenerator['getter'] = function(block){
 }
 
 scafiGenerator['distance_to'] = function(block){
-    const code  = "distanceTo("+Blockly.ScaFi.valueToCode(block, "SRC", scafiGenerator.PRECEDENCE)+")";
-    return [code,scafiGenerator.PRECEDENCE];
+    const code  = "distanceTo("+Blockly.ScaFi.valueToCode(block, "SRC", scafiGenerator.ATOMIC)+")";
+    return [code,scafiGenerator.FUNCTION_CALL];
+}
+
+scafiGenerator['distance_between'] = function(block){
+    const code  = "distanceBetween("+
+        Blockly.ScaFi.valueToCode(block, "SOURCE", scafiGenerator.ATOMIC)+", "+
+        Blockly.ScaFi.valueToCode(block, "TARGET", scafiGenerator.ATOMIC)+
+    ")";
+    return [code,scafiGenerator.FUNCTION_CALL];
 }
 
 scafiGenerator['channel'] = function(block){

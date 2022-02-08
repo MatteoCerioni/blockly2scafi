@@ -19,6 +19,7 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         '</category>\n' +
         '<category name="BlockG" colour="#cfa138">\n' +
             '<block type="distance_to"/>\n' +
+            '<block type="distance_between"/>\n' +
             '<block type="channel"/>\n' +
         '</category>\n' +
         '<category name="Actuation" colour="#cfa138">\n' +
