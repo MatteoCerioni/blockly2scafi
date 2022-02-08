@@ -4,11 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Add double block">
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Mux block dynamic output type">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/channel_example.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/channel_example.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -59,6 +59,7 @@
     <property name="last_directory_selection" value="$PROJECT_DIR$/src/main/scala/blockly2scafi" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/scala/blockly2scafi" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="run.code.analysis.last.selected.profile" value="pProject Default" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -111,7 +112,9 @@
       <workItem from="1643276331904" duration="600000" />
       <workItem from="1643376693695" duration="3490000" />
       <workItem from="1643974016977" duration="599000" />
-      <workItem from="1644156396471" duration="4877000" />
+      <workItem from="1644156396471" duration="14150000" />
+      <workItem from="1644248653589" duration="4803000" />
+      <workItem from="1644333064507" duration="5360000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -253,7 +256,28 @@
       <option name="project" value="LOCAL" />
       <updated>1642786412774</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Sense dynamic output type using new type blocks">
+      <created>1644162232816</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1644162232816</updated>
+    </task>
+    <task id="LOCAL-00022" summary="Getter blocks dynamic output type based on define/val inputs">
+      <created>1644334070345</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1644334070345</updated>
+    </task>
+    <task id="LOCAL-00023" summary="Mux block dynamic output type">
+      <created>1644335558438</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1644335558438</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -291,6 +315,9 @@
     <MESSAGE value="Update blocks_library xml for Blockly developer tool" />
     <MESSAGE value="Fix channel width type check" />
     <MESSAGE value="Add double block" />
-    <option name="LAST_COMMIT_MESSAGE" value="Add double block" />
+    <MESSAGE value="Sense dynamic output type using new type blocks" />
+    <MESSAGE value="Getter blocks dynamic output type based on define/val inputs" />
+    <MESSAGE value="Mux block dynamic output type" />
+    <option name="LAST_COMMIT_MESSAGE" value="Mux block dynamic output type" />
   </component>
 </project>

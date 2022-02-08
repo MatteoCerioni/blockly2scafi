@@ -273,6 +273,123 @@ Blockly.defineBlocksWithJsonArray([{
         "helpUrl": ""
     },
     {
+        "type": "number_compare",
+        "message0": "%1 %2 %3 %4",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FIRST",
+                "check": [
+                    "Integer",
+                    "Double"
+                ]
+            },
+            {
+                "type": "field_dropdown",
+                "name": "OPERATOR",
+                "options": [
+                    [
+                        ">",
+                        "GREATER"
+                    ],
+                    [
+                        ">=",
+                        "GREATER_OR_EQUAL"
+                    ],
+                    [
+                        "==",
+                        "EQUAL"
+                    ],
+                    [
+                        "!=",
+                        "NOT EQUAL"
+                    ],
+                    [
+                        "<=",
+                        "LESS_OR_EQUAL"
+                    ],
+                    [
+                        "<",
+                        "LESS"
+                    ]
+                ]
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SECOND",
+                "check": [
+                    "Integer",
+                    "Double"
+                ]
+            }
+        ],
+        "output": "Boolean",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
+        "type": "number_operation",
+        "message0": "%1 %2 %3 %4",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "FIRST",
+                "check": [
+                    "Double",
+                    "Integer"
+                ]
+            },
+            {
+                "type": "field_dropdown",
+                "name": "OPERATOR",
+                "options": [
+                    [
+                        "+",
+                        "ADDITION"
+                    ],
+                    [
+                        "-",
+                        "SUBTRACTION"
+                    ],
+                    [
+                        "*",
+                        "MULTIPLICATION"
+                    ],
+                    [
+                        "/",
+                        "DIVISION"
+                    ],
+                    [
+                        "%",
+                        "MODULUS"
+                    ]
+                ]
+            },
+            {
+                "type": "input_dummy"
+            },
+            {
+                "type": "input_value",
+                "name": "SECOND",
+                "check": [
+                    "Double",
+                    "Integer"
+                ]
+            }
+        ],
+        "output": [
+            "Double",
+            "Integer"
+        ],
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
         "type": "channel",
         "message0": "Channel %1 Source %2 Target %3 Width %4",
         "args0": [
