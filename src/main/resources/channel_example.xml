@@ -1,93 +1,136 @@
 <xml>
-    <block type="aggregate_program" id="UF;U$3td#0`7?!;FaQuC" deletable="false" x="10" y="10">
+    <block type="aggregate_program" id="whyttPpU,/%gQ#lY7;?x" deletable="false" x="21" y="72">
         <statement name="AGGREGATE_PROGRAM_MAIN">
-            <block type="define" id="8Rp.r2hC.g1w#%WX0FLz">
+            <block type="define" id=":5DRze}xwb#Mb-JNnFR:">
                 <field name="NAME">source</field>
                 <value name="VALUE">
-                    <block type="sense" id="=ir5k6Z7$OMKBl2D(Z`R">
+                    <block type="sense" id="Llz[2iICJyTPOCl#1(gK">
                         <value name="TYPE">
-                            <shadow type="type" id="5ZLBq^n7!%)jdVLzHpW%">
+                            <shadow type="type" id="wfpK=H{z:yc$}:6;/u;A">
                                 <field name="TYPE">Boolean</field>
                             </shadow>
                         </value>
                         <value name="SENSOR_NAME">
-                            <shadow type="string" id="Ze.+MMYem@!-/6zVk;@D">
-                                <field name="STRING_VALUE">sensor1</field>
+                            <shadow type="string" id="3*fD.So;e$QZ?q7ci/_]">
+                                <field name="STRING_VALUE">source</field>
                             </shadow>
                         </value>
                     </block>
                 </value>
                 <next>
-                    <block type="define" id="`,kZ,/i]q.-?zmHb-{V=">
+                    <block type="define" id="LZZ9O@B,3UJHfZ:`ijrt">
                         <field name="NAME">target</field>
                         <value name="VALUE">
-                            <block type="sense" id="GjUs8MP#?{LcT;k+jQ+?">
+                            <block type="sense" id="[7V6o,/~2mU6/b{UC!Eg">
                                 <value name="TYPE">
-                                    <shadow type="type" id="I3TIxSlltAZaWUd?:9p@">
+                                    <shadow type="type" id="6Ff8I.Hb^!-M|m!ll+]K">
                                         <field name="TYPE">Boolean</field>
                                     </shadow>
                                 </value>
                                 <value name="SENSOR_NAME">
-                                    <shadow type="string" id=")Art??L/tTA3wF9~(w8I">
-                                        <field name="STRING_VALUE">sensor1</field>
+                                    <shadow type="string" id="GUqgcgO1*ZeR3huJ2ff!">
+                                        <field name="STRING_VALUE">target</field>
                                     </shadow>
                                 </value>
                             </block>
                         </value>
                         <next>
-                            <block type="val" id="t;U6SZ8qhR~nTnlBD-q~">
-                                <field name="NAME">channelWidth</field>
+                            <block type="val" id="~{DqjD!G@_dBw9%?YhV)">
+                                <field name="NAME">inChannel</field>
                                 <value name="VALUE">
-                                    <block type="integer" id="e)VvH$g8=9J*~D-oT4me">
-                                        <field name="INTEGER_VALUE">1</field>
+                                    <block type="channel" id="p,3u7;6Ztoyjm^GaQoYR">
+                                        <value name="SOURCE">
+                                            <block type="getter" id="WQ!u+tQI8.YG:}fx~xWP">
+                                                <field name="NAME">source</field>
+                                                <data>[object Object]</data>
+                                            </block>
+                                        </value>
+                                        <value name="TARGET">
+                                            <block type="getter" id="M;NeNqRKdgvsb7(YJ]%}">
+                                                <field name="NAME">target</field>
+                                                <data>[object Object]</data>
+                                            </block>
+                                        </value>
+                                        <value name="WIDTH">
+                                            <block type="integer" id="ps%j,[!?N*lR#RgTQ@Ij">
+                                                <field name="INTEGER_VALUE">1</field>
+                                            </block>
+                                        </value>
                                     </block>
                                 </value>
                                 <next>
-                                    <block type="val" id="G8BHXL1?xe|]7cLR:Mo|">
-                                        <field name="NAME">inChannel</field>
+                                    <block type="val" id="qn!z5|FL;1ZbBZ)@oTyf">
+                                        <field name="NAME">channelColor</field>
                                         <value name="VALUE">
-                                            <block type="channel" id="DaI5/sk4j`zg)YfdSm,)">
-                                                <value name="SOURCE">
-                                                    <block type="getter" id="xr:rpJu~vJ4Btn.$C$Yj">
-                                                        <field name="NAME">source</field>
+                                            <block type="mux" id="QfdT0!E81=??sB@?e}[A">
+                                                <value name="CONDITION">
+                                                    <block type="getter" id="0.H(N7NKwy$YU!U1H,F-">
+                                                        <field name="NAME">inChannel</field>
+                                                        <data>[object Object]</data>
                                                     </block>
                                                 </value>
-                                                <value name="TARGET">
-                                                    <block type="getter" id="VWK%Cx`zXkNIA5EhCuvh">
-                                                        <field name="NAME">target</field>
+                                                <value name="FIRST_BRANCH">
+                                                    <block type="led_all_to" id="k_e][GZ2q?BwtT~JWFkK">
+                                                        <value name="COLOR">
+                                                            <shadow type="color" id="JK5N^V2uH}#7zKUhNl^T">
+                                                                <field name="COLOR">#ffffff</field>
+                                                            </shadow>
+                                                        </value>
                                                     </block>
                                                 </value>
-                                                <value name="WIDTH">
-                                                    <block type="getter" id="P?7IXGDlph9n?w(xxZD5">
-                                                        <field name="NAME">channelWidth</field>
+                                                <value name="SECOND_BRANCH">
+                                                    <block type="led_all_to" id="rA)zz4*dhUP45!yzVIq6">
+                                                        <value name="COLOR">
+                                                            <shadow type="color" id=",,SA7m})Fpkt6F5e!(-L">
+                                                                <field name="COLOR">#000000</field>
+                                                            </shadow>
+                                                        </value>
                                                     </block>
                                                 </value>
                                             </block>
                                         </value>
                                         <next>
-                                            <block type="val" id="yrOCvwoP;fD*IBg4]XP^">
-                                                <field name="NAME">channelColor</field>
+                                            <block type="val" id="N:/sP[s+_s`%+PY-{_oa">
+                                                <field name="NAME">nodeColor</field>
                                                 <value name="VALUE">
-                                                    <block type="mux" id="doGA^@AKNWR(QB%Y!5gq">
+                                                    <block type="mux" id=",|9}odxHf@_OP4ammu!,">
                                                         <value name="CONDITION">
-                                                            <block type="getter" id="Bfen3%?_Rrko}lrhFw6_">
-                                                                <field name="NAME">inChannel</field>
+                                                            <block type="getter" id="+~VDj?p/S-L6H^TPcw-g">
+                                                                <field name="NAME">source</field>
+                                                                <data>[object Object]</data>
                                                             </block>
                                                         </value>
                                                         <value name="FIRST_BRANCH">
-                                                            <block type="led_all_to" id="w(JJ636j_:Z#NtdSGCpZ">
+                                                            <block type="led_all_to" id="bQ(ArSiZ*P%]y:fm2]e+">
                                                                 <value name="COLOR">
-                                                                    <block type="color" id="AN3CNoe0]HDkEdv/t4.8">
-                                                                        <field name="COLOR">#ffffff</field>
-                                                                    </block>
+                                                                    <shadow type="color" id="M7lv2a(JQF.b=3yaD}e2">
+                                                                        <field name="COLOR">#3366ff</field>
+                                                                    </shadow>
                                                                 </value>
                                                             </block>
                                                         </value>
                                                         <value name="SECOND_BRANCH">
-                                                            <block type="led_all_to" id="TY?:)KC{JUt9?Cqv?C[y">
-                                                                <value name="COLOR">
-                                                                    <block type="color" id="~uHY{IjM9PPY^Kj,x{#v">
-                                                                        <field name="COLOR">#000000</field>
+                                                            <block type="mux" id="o4%X!@M-R9s.z?xWYhyj">
+                                                                <value name="CONDITION">
+                                                                    <block type="getter" id="wQhS!,jV2A/cTukqKL~O">
+                                                                        <field name="NAME">target</field>
+                                                                        <data>[object Object]</data>
+                                                                    </block>
+                                                                </value>
+                                                                <value name="FIRST_BRANCH">
+                                                                    <block type="led_all_to" id="c;UzOQ[y1s4ic@eab5F~">
+                                                                        <value name="COLOR">
+                                                                            <shadow type="color"
+                                                                                    id="cjFoF|:r2_5GlnL{Z.RF">
+                                                                                <field name="COLOR">#33cc00</field>
+                                                                            </shadow>
+                                                                        </value>
+                                                                    </block>
+                                                                </value>
+                                                                <value name="SECOND_BRANCH">
+                                                                    <block type="getter" id="RX@,z6y:*(03j~vs5B.8">
+                                                                        <field name="NAME">channelColor</field>
+                                                                        <data>[object Object]</data>
                                                                     </block>
                                                                 </value>
                                                             </block>
@@ -95,75 +138,23 @@
                                                     </block>
                                                 </value>
                                                 <next>
-                                                    <block type="val" id="XbSJr42sw;^%`,e3n2qW">
-                                                        <field name="NAME">nodeColor</field>
-                                                        <value name="VALUE">
-                                                            <block type="mux" id="ey|9ddAB/8=I3rsix=q$">
-                                                                <value name="CONDITION">
-                                                                    <block type="getter" id="^/80HDWJ]5=jB(B|VWc_">
-                                                                        <field name="NAME">source</field>
+                                                    <block type="output" id="Vh@GJQ-AiSpphQBJ}GzD">
+                                                        <value name="OUTPUT_VALUE">
+                                                            <block type="tuple" id="*;Vj=4_sDBC6u-9[R1hi">
+                                                                <value name="VALUE_1">
+                                                                    <block type="getter" id="~U;mjWBl~o#v[$3mTV#$">
+                                                                        <field name="NAME">inChannel</field>
+                                                                        <data>[object Object]</data>
                                                                     </block>
                                                                 </value>
-                                                                <value name="FIRST_BRANCH">
-                                                                    <block type="led_all_to" id=")Aw#c^Ps=u;IqA*1a$a@">
-                                                                        <value name="COLOR">
-                                                                            <block type="color"
-                                                                                   id="5lBn}XqLY_/THS[`0vu@">
-                                                                                <field name="COLOR">#3333ff</field>
-                                                                            </block>
-                                                                        </value>
-                                                                    </block>
-                                                                </value>
-                                                                <value name="SECOND_BRANCH">
-                                                                    <block type="mux" id="e`]SS*xSKudAk$Le0fC2">
-                                                                        <value name="CONDITION">
-                                                                            <block type="getter"
-                                                                                   id="8y-i?^{VytWq$j{`!54|">
-                                                                                <field name="NAME">target</field>
-                                                                            </block>
-                                                                        </value>
-                                                                        <value name="FIRST_BRANCH">
-                                                                            <block type="led_all_to"
-                                                                                   id="pV!RY+L}?TqoGw#%(pOz">
-                                                                                <value name="COLOR">
-                                                                                    <block type="color"
-                                                                                           id="/pXG[pR6BrV5VUIWmzcW">
-                                                                                        <field name="COLOR">#33cc00
-                                                                                        </field>
-                                                                                    </block>
-                                                                                </value>
-                                                                            </block>
-                                                                        </value>
-                                                                        <value name="SECOND_BRANCH">
-                                                                            <block type="getter"
-                                                                                   id="DM~G:+N~j@_eY_L7,Lc#">
-                                                                                <field name="NAME">channelColor</field>
-                                                                            </block>
-                                                                        </value>
+                                                                <value name="VALUE_2">
+                                                                    <block type="getter" id="Lfe~rr_*n-a!Yv:~}0#?">
+                                                                        <field name="NAME">nodeColor</field>
+                                                                        <data>[object Object]</data>
                                                                     </block>
                                                                 </value>
                                                             </block>
                                                         </value>
-                                                        <next>
-                                                            <block type="output" id="Fp5I.467kmuct9*~uE~j">
-                                                                <value name="OUTPUT_VALUE">
-                                                                    <block type="tuple" id="P50EWZ.,!]-VNa)3Ryv8">
-                                                                        <value name="VALUE_1">
-                                                                            <block type="getter"
-                                                                                   id="%!1eU}:VTW]wKUedz+fz">
-                                                                                <field name="NAME">inChannel</field>
-                                                                            </block>
-                                                                        </value>
-                                                                        <value name="VALUE_2">
-                                                                            <block type="getter"
-                                                                                   id="H(C|Y#svtF.^CgwTF]Ot">
-                                                                                <field name="NAME">nodeColor</field>
-                                                                            </block>
-                                                                        </value>
-                                                                    </block>
-                                                                </value>
-                                                            </block>
-                                                        </next>
                                                     </block>
                                                 </next>
                                             </block>

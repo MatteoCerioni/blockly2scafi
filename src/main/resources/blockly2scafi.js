@@ -75,25 +75,35 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
             '</block>' +
         '</xml>';
 
-    function updateSenseOutputType(event, workspace, senseBlock){
-        const blockCheck = senseBlock.outputConnection.getCheck()
-        const typeBlock = senseBlock.getInputTargetBlock('TYPE');
-        if(typeBlock){
-            const typeString = typeBlock.getFieldValue("TYPE")
-            if(!blockCheck || blockCheck.length === 0 || blockCheck[0] !== typeString){
-                senseBlock.setOutput(true, [typeString]);
-                workspace.fireChangeListener(event)
+    function updateBlockOutputType(block, types){
+        const blockCheck = block.outputConnection.getCheck()
+        if(types && types.length){
+            if(!blockCheck || blockCheck.length === 0 || blockCheck.filter(x => !types.includes(x)).length>0){
+                block.setOutput(true, types);
+                return true;
             }
         }else{
             if(blockCheck && blockCheck.length !== 0){
-                senseBlock.setOutput(false,[]);
-                workspace.fireChangeListener(event)
+                block.setOutput(true,[]);
+                return true;
             }
         }
+        return false;
     }
 
+    function updateSenseOutputType(event, workspace, senseBlock){
+        const typeBlock = senseBlock.getInputTargetBlock('TYPE');
+        let types = []
+        if(typeBlock){
+            const typeString = typeBlock.getFieldValue("TYPE")
+            types.append(typeString);
+        }
+        if(updateBlockOutputType(senseBlock, types)){
+            workspace.fireChangeListener(event);
+        }
+    }
     Blockly.Blocks['sense'].onchange = function(event){
-        if(event instanceof Blockly.Events.BlockMove){
+        if(event.type === "move"){
             const workspace = Blockly.getMainWorkspace();
             const block = workspace.getBlockById(event.blockId);
             if(block && block.type==='type'){
@@ -111,6 +121,56 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
                 }
             }
         }
+    };
+
+    function updateGetterOutputType(workspace, getterBlock){
+        const data =  getterBlock.data
+        if(data && data["defineBlockId"]){
+            const defineBlock  = workspace.getBlockById(data["defineBlockId"])
+            if(defineBlock){
+                const input = defineBlock.getInput('VALUE');
+                const connection = input.connection;
+                const targetBlock = connection.targetBlock();
+                let output = [];
+                if(targetBlock){
+                    output = targetBlock.outputConnection.getCheck();
+                }
+                return updateBlockOutputType(getterBlock, output);
+            }else{
+                getterBlock.dispose(true);
+            }
+            return false;
+        }
+    }
+    Blockly.Blocks['getter'].onchange = function(event){
+        const mainWorkspace = Blockly.getMainWorkspace();
+        if(event instanceof Blockly.Events.BlockMove ){
+            const workspace = Blockly.Workspace.getById(event.workspaceId);
+            if(mainWorkspace === workspace){
+                const block = workspace.getBlockById(event.blockId);
+                if(block && block.type==='getter'){
+                    if(updateGetterOutputType(mainWorkspace, block)){
+                        mainWorkspace.fireChangeListener(event);
+                    }
+                }
+            }
+        }
+    };
+    function defineAndValOnChange(event){
+        //Not fired on delete of define block
+        if(event.type === "move"){
+            const workspace = Blockly.getMainWorkspace();
+            const getters = workspace.getBlocksByType("getter")
+            for(const getter of getters){
+                updateGetterOutputType(workspace, getter)
+            }
+        }
+    }
+    Blockly.Blocks['define'].onchange = function(event){
+       defineAndValOnChange(event);
+    };
+    Blockly.Blocks['val'].onchange = function(event){
+        defineAndValOnChange(event);
     };
 
     const workspace = Blockly.inject(elt, {
@@ -134,7 +194,10 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
                 'kind':'block',
                 'type':'getter',
                 'fields': {
-                    'NAME': defName
+                    'NAME': defName,
+                },
+                'data':{
+                    'defineBlockId':defineBlock.id,
                 }
             });
         }

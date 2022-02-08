@@ -108,11 +108,9 @@ scafiGenerator['output'] = function (block) {
 
 scafiGenerator['define'] = function(block){
     const defName = block.getFieldValue('NAME');
-
     const input = block.getInput('VALUE');
     const connection = input.connection;
     const targetBlock = connection.targetBlock();
-
     let type = null;
     if(targetBlock){
         type = targetBlock.outputConnection.getCheck();
@@ -128,7 +126,20 @@ scafiGenerator['define'] = function(block){
 
 scafiGenerator['val'] = function(block){
     const defName = block.getFieldValue('NAME');
-    return "val " + defName + " = " + Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.PRECEDENCE);
+    const input = block.getInput('VALUE');
+    const connection = input.connection;
+    const targetBlock = connection.targetBlock();
+    let type = null;
+    if(targetBlock){
+        type = targetBlock.outputConnection.getCheck();
+    }
+
+    let code = "val "+defName;
+    if(type){
+        code += " : "+type
+    }
+    code += " = "+Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.PRECEDENCE);
+    return code;
 }
 
 scafiGenerator['getter'] = function(block){
