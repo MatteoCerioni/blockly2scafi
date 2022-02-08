@@ -273,6 +273,26 @@ Blockly.defineBlocksWithJsonArray([{
         "helpUrl": ""
     },
     {
+        "type": "distance_between",
+        "message0": "Distance Between %1 %2",
+        "args0": [
+            {
+                "type": "input_value",
+                "name": "SOURCE",
+                "check": "Boolean"
+            },
+            {
+                "type": "input_value",
+                "name": "TARGET",
+                "check": "Boolean"
+            }
+        ],
+        "output": "Double",
+        "colour": 230,
+        "tooltip": "",
+        "helpUrl": ""
+    },
+    {
         "type": "number_compare",
         "message0": "%1 %2 %3 %4",
         "args0": [

@@ -2,7 +2,7 @@ const scafiGenerator = new Blockly.Generator('ScaFi');
 
 //TODO FIX OPERATOR PRECEDENCE....
 scafiGenerator.ATOMIC = 0;
-scafiGenerator.FUNCTION_CALL = 2;
+scafiGenerator.FUNCTION_CALL = 2; //()
 scafiGenerator.ORDER_MULTIPLICATION = 5.1; // *
 scafiGenerator.ORDER_DIVISION = 5.2;       // /
 scafiGenerator.ORDER_MODULUS = 5.3;        // %
@@ -10,7 +10,8 @@ scafiGenerator.ORDER_SUBTRACTION = 6.1;    // -
 scafiGenerator.ORDER_ADDITION = 6.2;       // +
 scafiGenerator.ORDER_RELATIONAL = 8;       // < <= > >=
 scafiGenerator.ORDER_LOGICAL_AND = 13; // &&
-scafiGenerator.ORDER_LOGICAL_OR = 14; // ||
+scafiGenerator.ORDER_LOGICAL_OR = 14; // ||&&
+scafiGenerator.ORDER_NONE = 99;
 
 scafiGenerator['aggregate_program'] = function (block) {
     const import_map = {
@@ -143,7 +144,7 @@ scafiGenerator['number_operation'] = function (block) {
 }
 
 scafiGenerator['output'] = function (block) {
-    return Blockly.ScaFi.valueToCode(block, "OUTPUT_VALUE", scafiGenerator.ATOMIC);
+    return Blockly.ScaFi.valueToCode(block, "OUTPUT_VALUE", scafiGenerator.ORDER_NONE);
 }
 
 scafiGenerator['sense'] = function (block) {
