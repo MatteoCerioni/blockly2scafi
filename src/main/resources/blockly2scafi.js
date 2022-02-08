@@ -96,7 +96,7 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         let types = []
         if(typeBlock){
             const typeString = typeBlock.getFieldValue("TYPE")
-            types.append(typeString);
+            types.push(typeString);
         }
         if(updateBlockOutputType(senseBlock, types)){
             workspace.fireChangeListener(event);
@@ -118,6 +118,41 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
                     if(oldParentBlock.type === "sense"){
                         updateSenseOutputType(event, workspace, oldParentBlock);
                     }
+                }
+            }
+        }
+    };
+
+    function updateMuxOutputType(event, workspace, muxBlock){
+        let types = []
+        const firstInput = muxBlock.getInput('FIRST_BRANCH');
+        const firstInputBlock = firstInput.connection.targetBlock();
+        if(firstInputBlock){
+            types = types.concat(firstInputBlock.outputConnection.getCheck())
+        }
+        const secondInput = muxBlock.getInput('SECOND_BRANCH');
+        const secondInputBlock = secondInput.connection.targetBlock();
+        if(secondInputBlock){
+            types = types.concat(secondInputBlock.outputConnection.getCheck())
+        }
+
+        if(updateBlockOutputType(muxBlock, types)){
+            workspace.fireChangeListener(event);
+        }
+    }
+    Blockly.Blocks['mux'].onchange = function(event){
+        if(event.type === "move"){
+            const workspace = Blockly.getMainWorkspace();
+            if(event.newParentId){
+                const newParentBlock = workspace.getBlockById(event.newParentId);
+                if(newParentBlock && newParentBlock.type === "mux"){
+                    updateMuxOutputType(event, workspace, newParentBlock);
+                }
+            }
+            if(event.oldParentId){
+                const oldParentBlock = workspace.getBlockById(event.oldParentId);
+                if(oldParentBlock && oldParentBlock.type === "mux"){
+                    updateMuxOutputType(event, workspace, oldParentBlock);
                 }
             }
         }
@@ -157,7 +192,7 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
         }
     };
     function defineAndValOnChange(event){
-        //Not fired on delete of define block
+        //TODO FIRE ALSO ON DELETE OF DEFINE/VAL BLOCKS..
         if(event.type === "move"){
             const workspace = Blockly.getMainWorkspace();
             const getters = workspace.getBlocksByType("getter")
