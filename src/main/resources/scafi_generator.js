@@ -1,16 +1,17 @@
 const scafiGenerator = new Blockly.Generator('ScaFi');
 
-//TODO FIX OPERATOR PRECEDENCE....
-scafiGenerator.ATOMIC = 0;
-scafiGenerator.FUNCTION_CALL = 2; //()
-scafiGenerator.ORDER_MULTIPLICATION = 5.1; // *
-scafiGenerator.ORDER_DIVISION = 5.2;       // /
-scafiGenerator.ORDER_MODULUS = 5.3;        // %
-scafiGenerator.ORDER_SUBTRACTION = 6.1;    // -
-scafiGenerator.ORDER_ADDITION = 6.2;       // +
-scafiGenerator.ORDER_RELATIONAL = 8;       // < <= > >=
-scafiGenerator.ORDER_LOGICAL_AND = 13; // &&
-scafiGenerator.ORDER_LOGICAL_OR = 14; // ||&&
+scafiGenerator.ORDER_ATOMIC = 0;
+scafiGenerator.ORDER_FUNCTION_CALL = 2;     //()
+scafiGenerator.ORDER_MULTIPLICATION = 5.1;  // *
+scafiGenerator.ORDER_DIVISION = 5.2;        // /
+scafiGenerator.ORDER_MODULUS = 5.3;         // %
+scafiGenerator.ORDER_SUBTRACTION = 6.1;     // -
+scafiGenerator.ORDER_ADDITION = 6.2;        // +
+scafiGenerator.ORDER_RELATIONAL = 8;        // < <= > >=
+scafiGenerator.ORDER_EQUALITY =     12;         // == != === !==
+scafiGenerator.ORDER_LOGICAL_AND = 13;      // &&
+scafiGenerator.ORDER_LOGICAL_OR = 14;       // ||&&
+scafiGenerator.ORDER_ASSIGNMENT = 20;       // =
 scafiGenerator.ORDER_NONE = 99;
 
 scafiGenerator['aggregate_program'] = function (block) {
@@ -51,95 +52,104 @@ scafiGenerator['string'] = function (block) {
 
 scafiGenerator['integer'] = function (block) {
     const code = block.getFieldValue('INTEGER_VALUE').toString();
-    return [code, scafiGenerator.ATOMIC];
+    return [code, scafiGenerator.ORDER_ATOMIC];
 }
 
 scafiGenerator['double'] = function (block) {
     const code = block.getFieldValue('VALUE').toString();
-    return [code, scafiGenerator.ATOMIC];
+    return [code, scafiGenerator.ORDER_ATOMIC];
 }
 
 scafiGenerator['boolean'] = function (block) {
     const code = block.getFieldValue('BOOLEAN_VALUE');
-    return [code, scafiGenerator.ATOMIC];
+    return [code, scafiGenerator.ORDER_ATOMIC];
 }
 
 scafiGenerator['tuple'] = function (block) {
     const values = [
-        Blockly.ScaFi.valueToCode(block, "VALUE_1", scafiGenerator.ATOMIC),
-        Blockly.ScaFi.valueToCode(block, "VALUE_2", scafiGenerator.ATOMIC)
+        Blockly.ScaFi.valueToCode(block, "VALUE_1", scafiGenerator.ORDER_ATOMIC),
+        Blockly.ScaFi.valueToCode(block, "VALUE_2", scafiGenerator.ORDER_ATOMIC)
     ];
 
     const code = "(" + values[0] + "," + values[1] + ")"
-    return [code, scafiGenerator.ATOMIC];
+    return [code, scafiGenerator.ORDER_ATOMIC];
 }
 
 scafiGenerator['boolean_operation'] = function (block) {
     const operation = block.getFieldValue("OPERATION");
-    const first = Blockly.ScaFi.valueToCode(block, 'FIRST', scafiGenerator.ATOMIC);
-    const second = Blockly.ScaFi.valueToCode(block, 'SECOND', scafiGenerator.ATOMIC);
 
     let order;
-    let code;
+    let operator;
     if(operation === 'and'){
-        code = first+' && '+second;
+        operator = "&&";
         order = scafiGenerator.ORDER_LOGICAL_AND;
     }else{ //or
-        code = first+' || '+second;
+        operator = "||";
         order = scafiGenerator.ORDER_LOGICAL_OR;
     }
+
+    const first = Blockly.ScaFi.valueToCode(block, 'FIRST', order);
+    const second = Blockly.ScaFi.valueToCode(block, 'SECOND', order);
+    const code = first+' '+operator+' '+second;
 
     return [code, order];
 }
 
 scafiGenerator['number_compare'] = function (block) {
     const operation = block.getFieldValue("OPERATOR");
-    const first = Blockly.ScaFi.valueToCode(block, 'FIRST', scafiGenerator.ATOMIC);
-    const second = Blockly.ScaFi.valueToCode(block, 'SECOND', scafiGenerator.ATOMIC);
 
-    let order = scafiGenerator.ORDER_RELATIONAL;
-    let code;
+    let operator;
+    let order;
     if(operation === 'GREATER'){
-        code = first+' > '+second;
+        operator = ' > ';
+        order = scafiGenerator.ORDER_RELATIONAL;
     }else if(operation === 'GREATER_OR_EQUAL'){
-        code = first+' >= '+second;
+        operator = ' >= ';
+        order = scafiGenerator.ORDER_RELATIONAL;
     }else if(operation === 'EQUAL'){
-        code = first+' == '+second;
+        operator = ' == ';
+        order = scafiGenerator.ORDER_EQUALITY;
     }else if(operation === 'NOT_EQUAL'){
-        code = first+' != '+second;
+        operator = ' != ';
+        order = scafiGenerator.ORDER_EQUALITY;
     }else if(operation === 'LESS_OR_EQUAL'){
-        code = first+' <= '+second;
+        operator = ' <= ';
+        order = scafiGenerator.ORDER_RELATIONAL;
     }else{ //LESS
-        code = first+' < '+second;
+        operator = ' < ';
+        order = scafiGenerator.ORDER_RELATIONAL;
     }
+    const first = Blockly.ScaFi.valueToCode(block, 'FIRST', order);
+    const second = Blockly.ScaFi.valueToCode(block, 'SECOND', order);
+    const code = first+operator+second;
 
     return [code, order];
 }
 
 scafiGenerator['number_operation'] = function (block) {
     const operation = block.getFieldValue("OPERATOR");
-    const first = Blockly.ScaFi.valueToCode(block, 'FIRST', scafiGenerator.ATOMIC);
-    const second = Blockly.ScaFi.valueToCode(block, 'SECOND', scafiGenerator.ATOMIC);
 
     let order;
-    let code;
+    let operator;
     if(operation === 'ADDITION'){
-        code = first+' + '+second;
+        operator = ' + ';
         order = scafiGenerator.ORDER_ADDITION;
     }else if(operation === 'SUBTRACTION'){
-        code = first+' - '+second;
+        operator = ' - ';
         order = scafiGenerator.ORDER_SUBTRACTION;
     }else if(operation === 'MULTIPLICATION'){
-        code = first+' * '+second;
+        operator = ' * ';
         order = scafiGenerator.ORDER_MULTIPLICATION;
     }else if(operation === 'DIVISION'){
-        code = first+' / '+second;
+        operator = ' / ';
         order = scafiGenerator.ORDER_DIVISION;
     }else{ //MODULUS
-        code = first+' % '+second;
+        operator = ' % ';
         order = scafiGenerator.ORDER_MODULUS;
     }
-
+    const first = Blockly.ScaFi.valueToCode(block, 'FIRST', order);
+    const second = Blockly.ScaFi.valueToCode(block, 'SECOND', order);
+    const code = first+operator+second;
     return [code, order];
 }
 
@@ -148,21 +158,21 @@ scafiGenerator['output'] = function (block) {
 }
 
 scafiGenerator['sense'] = function (block) {
-    const sensor = Blockly.ScaFi.valueToCode(block, 'SENSOR_NAME', scafiGenerator.ATOMIC);
+    const sensor = Blockly.ScaFi.valueToCode(block, 'SENSOR_NAME', scafiGenerator.ORDER_ATOMIC);
     const code = 'sense(' + sensor + ')';
-    return [code, scafiGenerator.FUNCTION_CALL];
+    return [code, scafiGenerator.ORDER_FUNCTION_CALL];
 }
 
 scafiGenerator['mux'] = function (block) {
-    const condition = Blockly.ScaFi.valueToCode(block, 'CONDITION', scafiGenerator.ATOMIC);
-    const firstBranch = Blockly.ScaFi.valueToCode(block, 'FIRST_BRANCH', scafiGenerator.ATOMIC);
-    const secondBranch = Blockly.ScaFi.valueToCode(block, 'SECOND_BRANCH', scafiGenerator.ATOMIC);
+    const condition = Blockly.ScaFi.valueToCode(block, 'CONDITION', scafiGenerator.ORDER_ATOMIC);
+    const firstBranch = Blockly.ScaFi.valueToCode(block, 'FIRST_BRANCH', scafiGenerator.ORDER_ATOMIC);
+    const secondBranch = Blockly.ScaFi.valueToCode(block, 'SECOND_BRANCH', scafiGenerator.ORDER_ATOMIC);
     let code = 'mux(' + condition + '){\n';
     code += scafiGenerator.prefixLines(firstBranch, scafiGenerator.INDENT)+'\n';
     code += '}{\n';
     code += scafiGenerator.prefixLines(secondBranch, scafiGenerator.INDENT)+'\n';
     code += '}';
-    return [code, scafiGenerator.ATOMIC];
+    return [code, scafiGenerator.ORDER_ATOMIC];
 }
 
 scafiGenerator['define'] = function(block){
@@ -176,10 +186,10 @@ scafiGenerator['define'] = function(block){
     }
 
     let code = "def "+defName;
-    if(type){
-        code += " : "+type
+    if(type && type.length){
+        code += " : "+type[0]
     }
-    code += " = "+Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.ATOMIC);
+    code += " = "+Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.ORDER_ASSIGNMENT);
     return code;
 }
 
@@ -194,54 +204,54 @@ scafiGenerator['val'] = function(block){
     }
 
     let code = "val "+defName;
-    if(type){
-        code += " : "+type
+    if(type && type.length){
+        code += " : "+type[0]
     }
-    code += " = "+Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.ATOMIC);
+    code += " = "+Blockly.ScaFi.valueToCode(block, "VALUE", scafiGenerator.ORDER_ASSIGNMENT);
     return code;
 }
 
 scafiGenerator['getter'] = function(block){
-    return [block.getFieldValue('NAME'), scafiGenerator.ATOMIC];
+    return [block.getFieldValue('NAME'), scafiGenerator.ORDER_ATOMIC];
 }
 
 scafiGenerator['distance_to'] = function(block){
-    const code  = "distanceTo("+Blockly.ScaFi.valueToCode(block, "SRC", scafiGenerator.ATOMIC)+")";
-    return [code,scafiGenerator.FUNCTION_CALL];
+    const code  = "distanceTo("+Blockly.ScaFi.valueToCode(block, "SRC", scafiGenerator.ORDER_ATOMIC)+")";
+    return [code,scafiGenerator.ORDER_FUNCTION_CALL];
 }
 
 scafiGenerator['distance_between'] = function(block){
     const code  = "distanceBetween("+
-        Blockly.ScaFi.valueToCode(block, "SOURCE", scafiGenerator.ATOMIC)+", "+
-        Blockly.ScaFi.valueToCode(block, "TARGET", scafiGenerator.ATOMIC)+
+        Blockly.ScaFi.valueToCode(block, "SOURCE", scafiGenerator.ORDER_ATOMIC)+", "+
+        Blockly.ScaFi.valueToCode(block, "TARGET", scafiGenerator.ORDER_ATOMIC)+
     ")";
-    return [code,scafiGenerator.FUNCTION_CALL];
+    return [code,scafiGenerator.ORDER_FUNCTION_CALL];
 }
 
 scafiGenerator['channel'] = function(block){
     const code  = "channel("+
-        Blockly.ScaFi.valueToCode(block, "SOURCE", scafiGenerator.ATOMIC)+", "+
-        Blockly.ScaFi.valueToCode(block, "TARGET", scafiGenerator.ATOMIC)+", "+
-        Blockly.ScaFi.valueToCode(block, "WIDTH", scafiGenerator.ATOMIC)+
+        Blockly.ScaFi.valueToCode(block, "SOURCE", scafiGenerator.ORDER_ATOMIC)+", "+
+        Blockly.ScaFi.valueToCode(block, "TARGET", scafiGenerator.ORDER_ATOMIC)+", "+
+        Blockly.ScaFi.valueToCode(block, "WIDTH", scafiGenerator.ORDER_ATOMIC)+
     ")";
-    return [code,scafiGenerator.FUNCTION_CALL];
+    return [code,scafiGenerator.ORDER_FUNCTION_CALL];
 }
 
 scafiGenerator['led_all_to'] = function(block){
-    const code  = "ledAll to "+Blockly.ScaFi.valueToCode(block, "COLOR", scafiGenerator.ATOMIC);
-    return [code,scafiGenerator.ATOMIC];
+    const code  = "ledAll to "+Blockly.ScaFi.valueToCode(block, "COLOR", scafiGenerator.ORDER_ATOMIC);
+    return [code,scafiGenerator.ORDER_ATOMIC];
 }
 
 scafiGenerator['color'] = function(block){
-    return ['"'+block.getFieldValue('COLOR')+'"', scafiGenerator.ATOMIC];
+    return ['"'+block.getFieldValue('COLOR')+'"', scafiGenerator.ORDER_ATOMIC];
 }
 
 scafiGenerator['type'] = function(block){
-    return [block.getFieldValue("TYPE"), scafiGenerator.ATOMIC];
+    return [block.getFieldValue("TYPE"), scafiGenerator.ORDER_ATOMIC];
 }
 
 scafiGenerator['other_type'] = function(block){
-    return [block.getFieldValue("TYPE"), scafiGenerator.ATOMIC];
+    return [block.getFieldValue("TYPE"), scafiGenerator.ORDER_ATOMIC];
 }
 
 scafiGenerator.scrub_ = function (block, code, opt_thisOnly) {

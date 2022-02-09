@@ -4,11 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Fix distance_between block">
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Change blocks categories colors">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/channel_example.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/channel_example.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -115,7 +113,7 @@
       <workItem from="1644156396471" duration="14150000" />
       <workItem from="1644248653589" duration="4803000" />
       <workItem from="1644333064507" duration="6575000" />
-      <workItem from="1644426088161" duration="5464000" />
+      <workItem from="1644426088161" duration="7048000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -299,7 +297,14 @@
       <option name="project" value="LOCAL" />
       <updated>1644339458454</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="Change blocks categories colors">
+      <created>1644433074952</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1644433074955</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -317,7 +322,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Rename package name &quot;example&quot; to &quot;blockly2scafi&quot;" />
     <MESSAGE value="Move html and js files to resources directory" />
     <MESSAGE value="Move blocks json definition from scafi_generator.js to blocks.js file" />
     <MESSAGE value="Add README.md" />
@@ -342,6 +346,7 @@
     <MESSAGE value="Add number_compare and number_operation blocks" />
     <MESSAGE value="Add distance_between block" />
     <MESSAGE value="Fix distance_between block" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fix distance_between block" />
+    <MESSAGE value="Change blocks categories colors" />
+    <option name="LAST_COMMIT_MESSAGE" value="Change blocks categories colors" />
   </component>
 </project>
