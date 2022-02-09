@@ -1,7 +1,7 @@
 Blockly.createBlockly2ScafiWorkspace = function (elt) {
     const toolboxXml =
         '<xml>\n' +
-        '<category name="ScaFi" colour="#cfa138">\n' +
+        '<category name="ScaFi" colour="#5b67a5">\n' +
             '<block type="output"/>\n' +
             '<block type="sense" output="Boolean">' +
                 '<value name="TYPE">' +
@@ -17,12 +17,12 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
             '</block>' +
             '<block type="tuple"/>\n' +
         '</category>\n' +
-        '<category name="BlockG" colour="#cfa138">\n' +
+        '<category name="BlockG" colour="#5b67a5">\n' +
             '<block type="distance_to"/>\n' +
             '<block type="distance_between"/>\n' +
             '<block type="channel"/>\n' +
         '</category>\n' +
-        '<category name="Actuation" colour="#cfa138">\n' +
+        '<category name="Actuation" colour="#5b67a5">\n' +
             '<block type="led_all_to">\n' +
                 '<value name="COLOR">\n' +
                     '<shadow type="color"/>\n' +
@@ -38,8 +38,11 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
             '<block type="boolean_operation">\n' +
                 '<field name="OPERATOR">and</field>\n' +
             '</block>\n' +
+            '<block type="number_compare">\n' +
+                '<field name="OPERATOR">GREATER</field>\n' +
+            '</block>\n' +
         '</category>\n' +
-        '<category name="Math" colour="#5b67a5">\n' +
+        '<category name="Math" colour="#745ba5">\n' +
             '<block type="integer">\n' +
                 '<field name="INTEGER_VALUE">0</field>\n' +
             '</block>\n' +
@@ -48,9 +51,6 @@ Blockly.createBlockly2ScafiWorkspace = function (elt) {
             '</block>\n' +
             '<block type="number_operation">\n' +
                 '<field name="OPERATOR">ADDITION</field>\n' +
-            '</block>\n' +
-            '<block type="number_compare">\n' +
-                '<field name="OPERATOR">GREATER</field>\n' +
             '</block>\n' +
         '</category>\n' +
         '<category name="Text" colour="#5ba58c">\n' +

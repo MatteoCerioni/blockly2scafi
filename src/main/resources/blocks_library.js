@@ -55,7 +55,7 @@ Blockly.defineBlocksWithJsonArray([{
             }
         ],
         "output": "Integer",
-        "colour": 230,
+        "colour": 260,
         "tooltip": "",
         "helpUrl": ""
     },
@@ -71,7 +71,7 @@ Blockly.defineBlocksWithJsonArray([{
             }
         ],
         "output": "Double",
-        "colour": 230,
+        "colour": 260,
         "tooltip": "",
         "helpUrl": ""
     },
@@ -217,7 +217,7 @@ Blockly.defineBlocksWithJsonArray([{
         "inputsInline": false,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 330,
+        "colour": 350,
         "tooltip": "",
         "helpUrl": ""
     },
@@ -238,7 +238,7 @@ Blockly.defineBlocksWithJsonArray([{
         "inputsInline": false,
         "previousStatement": null,
         "nextStatement": null,
-        "colour": 330,
+        "colour": 350,
         "tooltip": "",
         "helpUrl": ""
     },
@@ -253,7 +253,7 @@ Blockly.defineBlocksWithJsonArray([{
             }
         ],
         "output": null,
-        "colour": 330,
+        "colour": 350,
         "tooltip": "",
         "helpUrl": ""
     },
@@ -279,12 +279,14 @@ Blockly.defineBlocksWithJsonArray([{
             {
                 "type": "input_value",
                 "name": "SOURCE",
-                "check": "Boolean"
+                "check": "Boolean",
+                "align": "RIGHT"
             },
             {
                 "type": "input_value",
                 "name": "TARGET",
-                "check": "Boolean"
+                "check": "Boolean",
+                "align": "RIGHT"
             }
         ],
         "output": "Double",
@@ -347,7 +349,7 @@ Blockly.defineBlocksWithJsonArray([{
             }
         ],
         "output": "Boolean",
-        "colour": 230,
+        "colour": 210,
         "tooltip": "",
         "helpUrl": ""
     },
@@ -405,7 +407,7 @@ Blockly.defineBlocksWithJsonArray([{
             "Double",
             "Integer"
         ],
-        "colour": 230,
+        "colour": 260,
         "tooltip": "",
         "helpUrl": ""
     },
@@ -450,7 +452,7 @@ Blockly.defineBlocksWithJsonArray([{
                 "check": "Color"
             }
         ],
-        "output": "MatrixOps",
+        "output": null,
         "colour": 230,
         "tooltip": "",
         "helpUrl": ""
