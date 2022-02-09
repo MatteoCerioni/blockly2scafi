@@ -163,8 +163,8 @@
     </value>
     <value name="COLOUR">
         <block type="colour_hue" id="9/JiF]9ZjzwVbnA`^Pe#">
-            <mutation colour="#5b67a5"></mutation>
-            <field name="HUE">230</field>
+            <mutation colour="#745ba5"></mutation>
+            <field name="HUE">260</field>
         </block>
     </value>
 </block><block type="factory_base" id="*~z.{V|m/uS[,6^q5XuX" deletable="false" movable="false" x="10" y="10">
@@ -487,8 +487,8 @@
     </value>
     <value name="COLOUR">
         <block type="colour_hue" id=".$C[]$Z^+^i^wGnFN-+N">
-            <mutation colour="#5b67a5"></mutation>
-            <field name="HUE">230</field>
+            <mutation colour="#745ba5"></mutation>
+            <field name="HUE">260</field>
         </block>
     </value>
 </block><block type="factory_base" id="M=SOaS0^fNB^y`I4WG#c" deletable="false" movable="false" x="10" y="10">
@@ -741,9 +741,6 @@
     </value>
     <value name="OUTPUTTYPE">
         <shadow type="type_null" id="1RGj`5?6kY]1D=n(itsj"></shadow>
-        <block type="type_other" id="O|O+Y*@e#zfbR{!#ig]M">
-            <field name="TYPE">MatrixOps</field>
-        </block>
     </value>
     <value name="COLOUR">
         <block type="colour_hue" id="Bm55Kx#*Ktt6iBQu#Ab|">
@@ -1010,8 +1007,8 @@
     </value>
     <value name="COLOUR">
         <block type="colour_hue" id="cgO%O!8!e,zGQDT$O+,v">
-            <mutation colour="#5b67a5"></mutation>
-            <field name="HUE">230</field>
+            <mutation colour="#5b80a5"></mutation>
+            <field name="HUE">210</field>
         </block>
     </value>
 </block><block type="factory_base" id="uHUK/?jl/fcf+k.o0Btt" deletable="false" movable="false" x="10" y="10">
@@ -1041,12 +1038,11 @@
             </value>
             <next>
                 <block type="input_dummy" id="UZ`ymdm5@r.%a^xE(.E}">
-                    <field name="INPUTNAME">OPERATOR</field>
                     <field name="ALIGN">LEFT</field>
                     <statement name="FIELDS">
                         <block type="field_dropdown" id="|(xp_LfLe9^Pg-uKp,-!">
                             <mutation options="[&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;,&quot;text&quot;]"></mutation>
-                            <field name="FIELDNAME">NAME</field>
+                            <field name="FIELDNAME">OPERATOR</field>
                             <field name="USER0">+</field>
                             <field name="CPU0">ADDITION</field>
                             <field name="USER1">-</field>
@@ -1113,8 +1109,8 @@
     </value>
     <value name="COLOUR">
         <block type="colour_hue" id="R%9s?eNZGsBhgcN`Ti2+">
-            <mutation colour="#5b67a5"></mutation>
-            <field name="HUE">230</field>
+            <mutation colour="#745ba5"></mutation>
+            <field name="HUE">260</field>
         </block>
     </value>
 </block></xml>
