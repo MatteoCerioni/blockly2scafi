@@ -556,12 +556,18 @@ function updateMuxOutputType(event, workspace, muxBlock){
     const firstInput = muxBlock.getInput('FIRST_BRANCH');
     const firstInputBlock = firstInput.connection.targetBlock();
     if(firstInputBlock){
-        types = types.concat(firstInputBlock.outputConnection.getCheck())
+        const firstOutput = firstInputBlock.outputConnection.getCheck();
+        if(firstOutput){
+            types = types.concat(firstOutput)
+        }
     }
     const secondInput = muxBlock.getInput('SECOND_BRANCH');
     const secondInputBlock = secondInput.connection.targetBlock();
     if(secondInputBlock){
-        types = types.concat(secondInputBlock.outputConnection.getCheck())
+        const secondOutput = secondInputBlock.outputConnection.getCheck();
+        if(secondOutput){
+            types = types.concat(secondOutput)
+        }
     }
 
     if(updateBlockOutputType(muxBlock, types)){

@@ -4,12 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Update Blockly Developer Tool library xml">
+    <list default="true" id="e43dc4e7-358d-4cff-9b42-b33c01750e73" name="Changes" comment="Update README.md">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blockly2scafi.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/resources/blocks_library.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/blocks_library.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/resources/scafi_generator.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -118,7 +115,8 @@
       <workItem from="1644426088161" duration="8660000" />
       <workItem from="1644438781375" duration="2596000" />
       <workItem from="1644490608591" duration="53000" />
-      <workItem from="1644505090892" duration="3265000" />
+      <workItem from="1644505090892" duration="4078000" />
+      <workItem from="1644514532240" duration="119000" />
     </task>
     <task id="LOCAL-00001" summary="First commit">
       <created>1640715177934</created>
@@ -337,7 +335,21 @@
       <option name="project" value="LOCAL" />
       <updated>1644440078303</updated>
     </task>
-    <option name="localTasksCounter" value="32" />
+    <task id="LOCAL-00032" summary="Move dynamic output type listeners to blocks_library.js">
+      <created>1644508516781</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1644508516781</updated>
+    </task>
+    <task id="LOCAL-00033" summary="Update README.md">
+      <created>1644508567175</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1644508567175</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -355,8 +367,6 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="Add aggregate_program block" />
-    <MESSAGE value="Move toolbox definition to js" />
     <MESSAGE value="Add output and string blocks" />
     <MESSAGE value="add int, bool, tuple and sense blocks" />
     <MESSAGE value="add mux block" />
@@ -380,6 +390,8 @@
     <MESSAGE value="Fix html code container horizontal scroll" />
     <MESSAGE value="Add button to load channel example" />
     <MESSAGE value="Update Blockly Developer Tool library xml" />
-    <option name="LAST_COMMIT_MESSAGE" value="Update Blockly Developer Tool library xml" />
+    <MESSAGE value="Move dynamic output type listeners to blocks_library.js" />
+    <MESSAGE value="Update README.md" />
+    <option name="LAST_COMMIT_MESSAGE" value="Update README.md" />
   </component>
 </project>
