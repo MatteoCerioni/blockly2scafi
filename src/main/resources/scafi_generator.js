@@ -1,5 +1,6 @@
 const scafiGenerator = new Blockly.Generator('ScaFi');
 
+//Operator precedence constants. See https://developers.google.com/blockly/guides/create-custom-blocks/operator-precedence
 scafiGenerator.ORDER_ATOMIC = 0;
 scafiGenerator.ORDER_FUNCTION_CALL = 2;     //()
 scafiGenerator.ORDER_MULTIPLICATION = 5.1;  // *
@@ -8,7 +9,7 @@ scafiGenerator.ORDER_MODULUS = 5.3;         // %
 scafiGenerator.ORDER_SUBTRACTION = 6.1;     // -
 scafiGenerator.ORDER_ADDITION = 6.2;        // +
 scafiGenerator.ORDER_RELATIONAL = 8;        // < <= > >=
-scafiGenerator.ORDER_EQUALITY =     12;         // == != === !==
+scafiGenerator.ORDER_EQUALITY =     12;     // == != === !==
 scafiGenerator.ORDER_LOGICAL_AND = 13;      // &&
 scafiGenerator.ORDER_LOGICAL_OR = 14;       // ||&&
 scafiGenerator.ORDER_ASSIGNMENT = 20;       // =
@@ -254,6 +255,7 @@ scafiGenerator['other_type'] = function(block){
     return [block.getFieldValue("TYPE"), scafiGenerator.ORDER_ATOMIC];
 }
 
+//scrub_ is the common tasks for generating code from blocks, called on every block.
 scafiGenerator.scrub_ = function (block, code, opt_thisOnly) {
     const nextBlock = block.nextConnection && block.nextConnection.targetBlock();
     let nextCode = '';
