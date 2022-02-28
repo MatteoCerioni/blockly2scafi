@@ -11,9 +11,22 @@ scafiGenerator.ORDER_ADDITION = 6.2;        // +
 scafiGenerator.ORDER_RELATIONAL = 8;        // < <= > >=
 scafiGenerator.ORDER_EQUALITY =     12;     // == != === !==
 scafiGenerator.ORDER_LOGICAL_AND = 13;      // &&
-scafiGenerator.ORDER_LOGICAL_OR = 14;       // ||&&
+scafiGenerator.ORDER_LOGICAL_OR = 14;       // ||
 scafiGenerator.ORDER_ASSIGNMENT = 20;       // =
 scafiGenerator.ORDER_NONE = 99;
+
+scafiGenerator.ORDER_OVERRIDES = [
+    // (foo())() -> foo()()
+    [scafiGenerator.ORDER_FUNCTION_CALL, scafiGenerator.ORDER_FUNCTION_CALL],
+    // a * (b * c) -> a * b * c
+    [scafiGenerator.ORDER_MULTIPLICATION, scafiGenerator.ORDER_MULTIPLICATION],
+    // a + (b + c) -> a + b + c
+    [scafiGenerator.ORDER_ADDITION, scafiGenerator.ORDER_ADDITION],
+    // a && (b && c) -> a && b && c
+    [scafiGenerator.ORDER_LOGICAL_AND, scafiGenerator.ORDER_LOGICAL_AND],
+    // a || (b || c) -> a || b || c
+    [scafiGenerator.ORDER_LOGICAL_OR, scafiGenerator.ORDER_LOGICAL_OR]
+];
 
 scafiGenerator['aggregate_program'] = function (block) {
     const import_map = {
@@ -22,6 +35,7 @@ scafiGenerator['aggregate_program'] = function (block) {
         "channel" : ["StandardSensors","BlockG"],
         "led_all_to" : "Actuation",
     }
+
     let importArray = [];
     let import_code = "";
 
@@ -30,7 +44,9 @@ scafiGenerator['aggregate_program'] = function (block) {
     for(const block of allBlocks){
         if(block.type in import_map){
             let modules = import_map[block.type];
-            if(!Array.isArray(modules)) modules = [modules];
+            if(!Array.isArray(modules)){
+                modules = [modules];
+            }
             for(const module of modules){
                 if(!importArray.includes(module)){
                     importArray.push(module);
@@ -77,7 +93,7 @@ scafiGenerator['tuple'] = function (block) {
 }
 
 scafiGenerator['boolean_operation'] = function (block) {
-    const operation = block.getFieldValue("OPERATION");
+    const operation = block.getFieldValue("OPERATOR");
 
     let order;
     let operator;
