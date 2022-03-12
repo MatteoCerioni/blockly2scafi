@@ -181,7 +181,7 @@ scafiGenerator['sense'] = function (block) {
 }
 
 scafiGenerator['mux'] = function (block) {
-    const condition = Blockly.ScaFi.valueToCode(block, 'CONDITION', scafiGenerator.ORDER_ATOMIC);
+    const condition = Blockly.ScaFi.valueToCode(block, 'CONDITION', scafiGenerator.ORDER_NONE);
     const firstBranch = Blockly.ScaFi.valueToCode(block, 'FIRST_BRANCH', scafiGenerator.ORDER_ATOMIC);
     const secondBranch = Blockly.ScaFi.valueToCode(block, 'SECOND_BRANCH', scafiGenerator.ORDER_ATOMIC);
     let code = 'mux(' + condition + '){\n';
